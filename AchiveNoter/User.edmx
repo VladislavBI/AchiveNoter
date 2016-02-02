@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AchievmentsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AchieveInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThemeID" Type="int" Nullable="false" />
+          <Property Name="SubthemeID" Type="int" Nullable="false" />
+          <Property Name="Date" Type="smalldatetime" Nullable="false" />
+          <Property Name="Points" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Subscribe" Type="ntext" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Password">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varbinary" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Subtheme">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ThSubthRel">
+          <Key>
+            <PropertyRef Name="SubthemeID" />
+            <PropertyRef Name="ThemeID" />
+          </Key>
+          <Property Name="SubthemeID" Type="int" Nullable="false" />
+          <Property Name="ThemeID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AchieveInfo_Password">
+          <End Role="Password" Type="Self.Password" Multiplicity="1" />
+          <End Role="AchieveInfo" Type="Self.AchieveInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Password">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AchieveInfo">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AchieveInfo_Subtheme">
+          <End Role="Subtheme" Type="Self.Subtheme" Multiplicity="1" />
+          <End Role="AchieveInfo" Type="Self.AchieveInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subtheme">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AchieveInfo">
+              <PropertyRef Name="SubthemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AchieveInfo_Theme">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="AchieveInfo" Type="Self.AchieveInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AchieveInfo">
+              <PropertyRef Name="ThemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThSubthRel_Subtheme">
+          <End Role="Subtheme" Type="Self.Subtheme" Multiplicity="1" />
+          <End Role="ThSubthRel" Type="Self.ThSubthRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subtheme">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ThSubthRel">
+              <PropertyRef Name="SubthemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ThSubthRel_Theme">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="ThSubthRel" Type="Self.ThSubthRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ThSubthRel">
+              <PropertyRef Name="ThemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AchievmentsModelStoreContainer">
+          <EntitySet Name="AchieveInfo" EntityType="Self.AchieveInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Password" EntityType="Self.Password" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subtheme" EntityType="Self.Subtheme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Theme" EntityType="Self.Theme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThSubthRel" EntityType="Self.ThSubthRel" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ThSubthRel].[SubthemeID] AS [SubthemeID], 
+    [ThSubthRel].[ThemeID] AS [ThemeID]
+    FROM [dbo].[ThSubthRel] AS [ThSubthRel]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AchieveInfo_Password" Association="Self.FK_AchieveInfo_Password">
+            <End Role="Password" EntitySet="Password" />
+            <End Role="AchieveInfo" EntitySet="AchieveInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AchieveInfo_Subtheme" Association="Self.FK_AchieveInfo_Subtheme">
+            <End Role="Subtheme" EntitySet="Subtheme" />
+            <End Role="AchieveInfo" EntitySet="AchieveInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AchieveInfo_Theme" Association="Self.FK_AchieveInfo_Theme">
+            <End Role="Theme" EntitySet="Theme" />
+            <End Role="AchieveInfo" EntitySet="AchieveInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThSubthRel_Subtheme" Association="Self.FK_ThSubthRel_Subtheme">
+            <End Role="Subtheme" EntitySet="Subtheme" />
+            <End Role="ThSubthRel" EntitySet="ThSubthRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ThSubthRel_Theme" Association="Self.FK_ThSubthRel_Theme">
+            <End Role="Theme" EntitySet="Theme" />
+            <End Role="ThSubthRel" EntitySet="ThSubthRel" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AchievmentsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AchieveInfo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ThemeID" Type="Int32" Nullable="false" />
+          <Property Name="SubthemeID" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Points" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Subscribe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Password" Relationship="Self.FK_AchieveInfo_Password" FromRole="AchieveInfo" ToRole="Password" />
+          <NavigationProperty Name="Subtheme" Relationship="Self.FK_AchieveInfo_Subtheme" FromRole="AchieveInfo" ToRole="Subtheme" />
+          <NavigationProperty Name="Theme" Relationship="Self.FK_AchieveInfo_Theme" FromRole="AchieveInfo" ToRole="Theme" />
+        </EntityType>
+        <EntityType Name="Password">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password1" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="AchieveInfoes" Relationship="Self.FK_AchieveInfo_Password" FromRole="Password" ToRole="AchieveInfo" />
+        </EntityType>
+        <EntityType Name="Subtheme">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AchieveInfoes" Relationship="Self.FK_AchieveInfo_Subtheme" FromRole="Subtheme" ToRole="AchieveInfo" />
+          <NavigationProperty Name="Themes" Relationship="Self.ThSubthRel" FromRole="Subtheme" ToRole="Theme" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AchieveInfoes" Relationship="Self.FK_AchieveInfo_Theme" FromRole="Theme" ToRole="AchieveInfo" />
+          <NavigationProperty Name="Subthemes" Relationship="Self.ThSubthRel" FromRole="Theme" ToRole="Subtheme" />
+        </EntityType>
+        <Association Name="FK_AchieveInfo_Password">
+          <End Role="Password" Type="Self.Password" Multiplicity="1" />
+          <End Role="AchieveInfo" Type="Self.AchieveInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Password">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AchieveInfo">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AchieveInfo_Subtheme">
+          <End Role="Subtheme" Type="Self.Subtheme" Multiplicity="1" />
+          <End Role="AchieveInfo" Type="Self.AchieveInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subtheme">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AchieveInfo">
+              <PropertyRef Name="SubthemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AchieveInfo_Theme">
+          <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
+          <End Role="AchieveInfo" Type="Self.AchieveInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AchieveInfo">
+              <PropertyRef Name="ThemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ThSubthRel">
+          <End Role="Subtheme" Type="Self.Subtheme" Multiplicity="*" />
+          <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="AchievmentsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AchieveInfoes" EntityType="Self.AchieveInfo" />
+          <EntitySet Name="Passwords" EntityType="Self.Password" />
+          <EntitySet Name="Subthemes" EntityType="Self.Subtheme" />
+          <EntitySet Name="Themes" EntityType="Self.Theme" />
+          <AssociationSet Name="FK_AchieveInfo_Password" Association="Self.FK_AchieveInfo_Password">
+            <End Role="Password" EntitySet="Passwords" />
+            <End Role="AchieveInfo" EntitySet="AchieveInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AchieveInfo_Subtheme" Association="Self.FK_AchieveInfo_Subtheme">
+            <End Role="Subtheme" EntitySet="Subthemes" />
+            <End Role="AchieveInfo" EntitySet="AchieveInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AchieveInfo_Theme" Association="Self.FK_AchieveInfo_Theme">
+            <End Role="Theme" EntitySet="Themes" />
+            <End Role="AchieveInfo" EntitySet="AchieveInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="ThSubthRel" Association="Self.ThSubthRel">
+            <End Role="Subtheme" EntitySet="Subthemes" />
+            <End Role="Theme" EntitySet="Themes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AchievmentsModelStoreContainer" CdmEntityContainer="AchievmentsEntities">
+          <EntitySetMapping Name="AchieveInfoes">
+            <EntityTypeMapping TypeName="AchievmentsModel.AchieveInfo">
+              <MappingFragment StoreEntitySet="AchieveInfo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ThemeID" ColumnName="ThemeID" />
+                <ScalarProperty Name="SubthemeID" ColumnName="SubthemeID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Subscribe" ColumnName="Subscribe" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Passwords">
+            <EntityTypeMapping TypeName="AchievmentsModel.Password">
+              <MappingFragment StoreEntitySet="Password">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Password1" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subthemes">
+            <EntityTypeMapping TypeName="AchievmentsModel.Subtheme">
+              <MappingFragment StoreEntitySet="Subtheme">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Themes">
+            <EntityTypeMapping TypeName="AchievmentsModel.Theme">
+              <MappingFragment StoreEntitySet="Theme">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ThSubthRel" TypeName="AchievmentsModel.ThSubthRel" StoreEntitySet="ThSubthRel">
+            <EndProperty Name="Subtheme">
+              <ScalarProperty Name="ID" ColumnName="SubthemeID" />
+            </EndProperty>
+            <EndProperty Name="Theme">
+              <ScalarProperty Name="ID" ColumnName="ThemeID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

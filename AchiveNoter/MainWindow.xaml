@@ -1,0 +1,40 @@
+﻿<Window x:Class="AchiveNoter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Menu   Grid.ColumnSpan="3" FontSize="16" VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход" />
+            </MenuItem>
+            <MenuItem Header="Статистика" >
+                <MenuItem Header="Сегодня"/>
+                <MenuItem Header="Период"/>
+            </MenuItem>
+            <MenuItem Header="Справочник">
+                <MenuItem Header="Темы" />
+            </MenuItem>
+            <MenuItem Header="Общая информация" >
+                <MenuItem Header="Пользователь" />
+                <MenuItem Header="Разработчик" />
+            </MenuItem>
+        </Menu>
+
+        <Button Content="ДОБАВИТЬ!!!!!!!!"  FontSize="50" Grid.Column="1" Grid.Row="2" Click="Button_Click"/>
+        <Label Content="У меня есть новое достижение!"    VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" FontSize="25" HorizontalContentAlignment="Center"/>
+
+    </Grid>
+</Window>
