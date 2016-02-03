@@ -66,8 +66,12 @@
     <Compile Include="AchieveInfo.cs">
       <DependentUpon>User.tt</DependentUpon>
     </Compile>
+    <Compile Include="DelegatesData.cs" />
     <Compile Include="HelloWindow.xaml.cs">
       <DependentUpon>HelloWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewAchive\ThSubAdd.xaml.cs">
+      <DependentUpon>ThSubAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Password.cs">
       <DependentUpon>User.tt</DependentUpon>
@@ -132,6 +136,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewAchive\ThSubAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SignIn\Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

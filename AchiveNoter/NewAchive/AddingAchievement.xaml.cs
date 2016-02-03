@@ -25,8 +25,21 @@ namespace AchiveNoter
             TextBlockName.Text = name;
             TextBlockDate.Text = DateTime.Now.ToShortDateString();
             ComboBoxFill();
+
+            CreateDelegates();
         }
 
+        /// <summary>
+        /// Создание делегатов для окна
+        /// </summary>
+        void CreateDelegates()
+        {
+            DelegatesData.HandlerAchAddDelCBRefresf = new DelegatesData.AchAddDelCBRefresf(ComboBoxFill);
+        }
+
+        /// <summary>
+        /// Обновление ComboBox - тем и подтем
+        /// </summary>
         void ComboBoxFill()
         {
             ComboBoxTheme.Items.Clear();
@@ -45,6 +58,10 @@ namespace AchiveNoter
 
         }
 
+        /// <summary>
+        /// Обновление ComboBox - подтем
+        /// </summary>
+        /// <param name="ach">Соединение с бд</param>
         void RefrefsSubTh(AchievmentsEntities ach) 
         {
             ComboBoxSubtheme.Items.Clear();
@@ -88,8 +105,20 @@ namespace AchiveNoter
 
                 ach.AchieveInfoes.Add(achI);
                 ach.SaveChanges();
+
+                MainWindow mw = new MainWindow();
+                mw.Show();
                 this.Close();
             }
+        }
+
+        private void ComboBoxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            using(AchievmentsEntities ach=new AchievmentsEntities())
+	        {
+                RefrefsSubTh(ach);
+	        }
+            
         }
     }
 }

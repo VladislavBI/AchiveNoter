@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AchiveNoter.NewAchive;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,19 @@ namespace AchiveNoter
         public ThemSubChooser()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button b =sender as Button;
+            ThSubAdd th;
+            if(b.Content.ToString()=="Тема")
+                th=new ThSubAdd(true);
+            else
+                th=new ThSubAdd(false);
+
+            th.Show();
+            this.Close();
         }
     }
 }

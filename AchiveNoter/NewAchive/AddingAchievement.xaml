@@ -25,8 +25,8 @@
         <TextBlock Name="TextBlockDate" HorizontalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" Text="Дата" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2"/>
 
         <TextBlock Name="TextBlockName" HorizontalAlignment="Center"  Grid.Row="2" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="20"/>
-        <ComboBox x:Name="ComboBoxTheme" HorizontalAlignment="Left" Margin="21,19,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="ComboBoxSubtheme" HorizontalAlignment="Left" Margin="33,19,0,0" Grid.Row="3" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <ComboBox x:Name="ComboBoxTheme" HorizontalAlignment="Left" Margin="21,19,0,0" Grid.Row="3" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBoxTheme_SelectionChanged"/>
+        <ComboBox x:Name="ComboBoxSubtheme" HorizontalAlignment="Right" Margin="0,19,21,0" Grid.Row="3" VerticalAlignment="Top" Width="140" Grid.Column="1"/>
         <Button Grid.ColumnSpan="2" Content="Создать новое" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Bottom" Width="119" FontSize="16" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Center" Grid.Row="5" TextWrapping="Wrap" Text="Балы" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="16"/>
         <Slider Name="PointsSlider" Grid.ColumnSpan="2" Grid.Row="6" VerticalAlignment="Center" Margin="30,0,0,0" SmallChange="1"  Value="1" UseLayoutRounding="False" Minimum="1" Maximum="10" Ticks="1 2 3 4 5 6 7 8 9 10" IsSnapToTickEnabled="True" />
