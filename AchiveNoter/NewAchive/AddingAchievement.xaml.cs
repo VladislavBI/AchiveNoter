@@ -53,7 +53,7 @@ namespace AchiveNoter
 	            }
                 ComboBoxTheme.SelectedIndex = 0;
 
-                RefrefsSubTh(ach); 
+                
             }
 
         }
@@ -67,11 +67,11 @@ namespace AchiveNoter
             ComboBoxSubtheme.Items.Clear();
 
             Theme th=ach.Themes.Where(t=>t.Name==ComboBoxTheme.SelectedValue.ToString()).FirstOrDefault();
-            foreach (var item in ach.Subthemes)
+            foreach (var item in ach.SubThemeRels)
             {
-                if (item.Themes.Contains(th))
+                if (item.Theme==th)
                 {
-                    ComboBoxSubtheme.Items.Add(item.Name.ToString());
+                    ComboBoxSubtheme.Items.Add(item.Subtheme.Name);
                 }
             }
 
@@ -114,11 +114,19 @@ namespace AchiveNoter
 
         private void ComboBoxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(ComboBoxTheme.SelectedIndex!=-1)
             using(AchievmentsEntities ach=new AchievmentsEntities())
 	        {
                 RefrefsSubTh(ach);
 	        }
             
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AchieveName an = new AchieveName(TextBlockName.Text);
+            an.Show();
+            this.Close();
         }
     }
 }

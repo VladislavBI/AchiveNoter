@@ -22,9 +22,9 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Информация по достижению" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="16"/>
-        <TextBlock Name="TextBlockDate" HorizontalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" Text="Дата" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <TextBlock Name="TextBlockDate" HorizontalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" Text="Дата" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2" FontSize="16"/>
 
-        <TextBlock Name="TextBlockName" HorizontalAlignment="Center"  Grid.Row="2" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="20"/>
+        <TextBlock Name="TextBlockName" HorizontalAlignment="Center"  Grid.Row="2" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="16"/>
         <ComboBox x:Name="ComboBoxTheme" HorizontalAlignment="Left" Margin="21,19,0,0" Grid.Row="3" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBoxTheme_SelectionChanged"/>
         <ComboBox x:Name="ComboBoxSubtheme" HorizontalAlignment="Right" Margin="0,19,21,0" Grid.Row="3" VerticalAlignment="Top" Width="140" Grid.Column="1"/>
         <Button Grid.ColumnSpan="2" Content="Создать новое" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Bottom" Width="119" FontSize="16" Click="Button_Click"/>
@@ -35,8 +35,8 @@
         <TextBox  Name="TextBoxSubscr" Grid.Row="8" TextWrapping="Wrap" Text="" Grid.ColumnSpan="2" Grid.RowSpan="2" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
         <TextBlock HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="Тема" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="Подтема" VerticalAlignment="Top"  Grid.Column="1" />
-        <Button Content="Добавить" Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click_1"/>
-        <Button Content="Отмена" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Center" Grid.Column="1"/>
+        <Button Content="Добавить" Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click_1" FontSize="16" Width="80"/>
+        <Button Content="Назад" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Center" Grid.Column="1" FontSize="16" Width="80" Click="Button_Click_2"/>
 
 
     </Grid>

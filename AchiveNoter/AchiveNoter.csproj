@@ -85,6 +85,9 @@
     <Compile Include="Subtheme.cs">
       <DependentUpon>User.tt</DependentUpon>
     </Compile>
+    <Compile Include="SubThemeRel.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
     <Compile Include="Theme.cs">
       <DependentUpon>User.tt</DependentUpon>
     </Compile>

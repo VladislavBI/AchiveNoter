@@ -24,6 +24,12 @@ namespace AchiveNoter
             InitializeComponent();
         }
 
+        public AchieveName(string name)
+        {
+            InitializeComponent();
+            TextBoxName.Text = name;
+        } 
+
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
             if (TextBoxName.Text != "")

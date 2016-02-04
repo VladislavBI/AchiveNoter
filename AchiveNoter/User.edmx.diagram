@@ -12,7 +12,9 @@
         <AssociationConnector Association="AchievmentsModel.FK_AchieveInfo_Password" ManuallyRouted="false" />
         <AssociationConnector Association="AchievmentsModel.FK_AchieveInfo_Subtheme" ManuallyRouted="false" />
         <AssociationConnector Association="AchievmentsModel.FK_AchieveInfo_Theme" ManuallyRouted="false" />
-        <AssociationConnector Association="AchievmentsModel.ThSubthRel" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AchievmentsModel.SubThemeRel" Width="1.5" PointX="8.25" PointY="4.875" />
+        <AssociationConnector Association="AchievmentsModel.FK_SubThemeRel_Subtheme" />
+        <AssociationConnector Association="AchievmentsModel.FK_SubThemeRel_Theme" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

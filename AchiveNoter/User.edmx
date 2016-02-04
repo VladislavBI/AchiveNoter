@@ -33,22 +33,20 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="SubThemeRel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubThemeID" Type="int" Nullable="false" />
+          <Property Name="ThemeID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Theme">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="ThSubthRel">
-          <Key>
-            <PropertyRef Name="SubthemeID" />
-            <PropertyRef Name="ThemeID" />
-          </Key>
-          <Property Name="SubthemeID" Type="int" Nullable="false" />
-          <Property Name="ThemeID" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_AchieveInfo_Password">
           <End Role="Password" Type="Self.Password" Multiplicity="1" />
@@ -86,26 +84,26 @@ warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ThSubthRel_Subtheme">
+        <Association Name="FK_SubThemeRel_Subtheme">
           <End Role="Subtheme" Type="Self.Subtheme" Multiplicity="1" />
-          <End Role="ThSubthRel" Type="Self.ThSubthRel" Multiplicity="*" />
+          <End Role="SubThemeRel" Type="Self.SubThemeRel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Subtheme">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="ThSubthRel">
-              <PropertyRef Name="SubthemeID" />
+            <Dependent Role="SubThemeRel">
+              <PropertyRef Name="SubThemeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_ThSubthRel_Theme">
+        <Association Name="FK_SubThemeRel_Theme">
           <End Role="Theme" Type="Self.Theme" Multiplicity="1" />
-          <End Role="ThSubthRel" Type="Self.ThSubthRel" Multiplicity="*" />
+          <End Role="SubThemeRel" Type="Self.SubThemeRel" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Theme">
               <PropertyRef Name="ID" />
             </Principal>
-            <Dependent Role="ThSubthRel">
+            <Dependent Role="SubThemeRel">
               <PropertyRef Name="ThemeID" />
             </Dependent>
           </ReferentialConstraint>
@@ -114,13 +112,8 @@ warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primar
           <EntitySet Name="AchieveInfo" EntityType="Self.AchieveInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Password" EntityType="Self.Password" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subtheme" EntityType="Self.Subtheme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubThemeRel" EntityType="Self.SubThemeRel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Theme" EntityType="Self.Theme" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ThSubthRel" EntityType="Self.ThSubthRel" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ThSubthRel].[SubthemeID] AS [SubthemeID], 
-    [ThSubthRel].[ThemeID] AS [ThemeID]
-    FROM [dbo].[ThSubthRel] AS [ThSubthRel]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_AchieveInfo_Password" Association="Self.FK_AchieveInfo_Password">
             <End Role="Password" EntitySet="Password" />
             <End Role="AchieveInfo" EntitySet="AchieveInfo" />
@@ -133,13 +126,13 @@ warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primar
             <End Role="Theme" EntitySet="Theme" />
             <End Role="AchieveInfo" EntitySet="AchieveInfo" />
           </AssociationSet>
-          <AssociationSet Name="FK_ThSubthRel_Subtheme" Association="Self.FK_ThSubthRel_Subtheme">
+          <AssociationSet Name="FK_SubThemeRel_Subtheme" Association="Self.FK_SubThemeRel_Subtheme">
             <End Role="Subtheme" EntitySet="Subtheme" />
-            <End Role="ThSubthRel" EntitySet="ThSubthRel" />
+            <End Role="SubThemeRel" EntitySet="SubThemeRel" />
           </AssociationSet>
-          <AssociationSet Name="FK_ThSubthRel_Theme" Association="Self.FK_ThSubthRel_Theme">
+          <AssociationSet Name="FK_SubThemeRel_Theme" Association="Self.FK_SubThemeRel_Theme">
             <End Role="Theme" EntitySet="Theme" />
-            <End Role="ThSubthRel" EntitySet="ThSubthRel" />
+            <End Role="SubThemeRel" EntitySet="SubThemeRel" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -178,7 +171,7 @@ warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primar
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AchieveInfoes" Relationship="Self.FK_AchieveInfo_Subtheme" FromRole="Subtheme" ToRole="AchieveInfo" />
-          <NavigationProperty Name="Themes" Relationship="Self.ThSubthRel" FromRole="Subtheme" ToRole="Theme" />
+          <NavigationProperty Name="SubThemeRels" Relationship="AchievmentsModel.FK_SubThemeRel_Subtheme" FromRole="Subtheme" ToRole="SubThemeRel" />
         </EntityType>
         <EntityType Name="Theme">
           <Key>
@@ -187,7 +180,7 @@ warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primar
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="AchieveInfoes" Relationship="Self.FK_AchieveInfo_Theme" FromRole="Theme" ToRole="AchieveInfo" />
-          <NavigationProperty Name="Subthemes" Relationship="Self.ThSubthRel" FromRole="Theme" ToRole="Subtheme" />
+          <NavigationProperty Name="SubThemeRels" Relationship="AchievmentsModel.FK_SubThemeRel_Theme" FromRole="Theme" ToRole="SubThemeRel" />
         </EntityType>
         <Association Name="FK_AchieveInfo_Password">
           <End Role="Password" Type="Self.Password" Multiplicity="1" />
@@ -225,10 +218,6 @@ warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ThSubthRel">
-          <End Role="Subtheme" Type="Self.Subtheme" Multiplicity="*" />
-          <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="AchievmentsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AchieveInfoes" EntityType="Self.AchieveInfo" />
           <EntitySet Name="Passwords" EntityType="Self.Password" />
@@ -246,11 +235,50 @@ warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primar
             <End Role="Theme" EntitySet="Themes" />
             <End Role="AchieveInfo" EntitySet="AchieveInfoes" />
           </AssociationSet>
-          <AssociationSet Name="ThSubthRel" Association="Self.ThSubthRel">
+          <EntitySet Name="SubThemeRels" EntityType="AchievmentsModel.SubThemeRel" />
+          <AssociationSet Name="FK_SubThemeRel_Subtheme" Association="AchievmentsModel.FK_SubThemeRel_Subtheme">
             <End Role="Subtheme" EntitySet="Subthemes" />
+            <End Role="SubThemeRel" EntitySet="SubThemeRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubThemeRel_Theme" Association="AchievmentsModel.FK_SubThemeRel_Theme">
             <End Role="Theme" EntitySet="Themes" />
+            <End Role="SubThemeRel" EntitySet="SubThemeRels" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="SubThemeRel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="SubThemeID" Type="Int32" Nullable="false" />
+          <Property Name="ThemeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Subtheme" Relationship="AchievmentsModel.FK_SubThemeRel_Subtheme" FromRole="SubThemeRel" ToRole="Subtheme" />
+          <NavigationProperty Name="Theme" Relationship="AchievmentsModel.FK_SubThemeRel_Theme" FromRole="SubThemeRel" ToRole="Theme" />
+        </EntityType>
+        <Association Name="FK_SubThemeRel_Subtheme">
+          <End Type="AchievmentsModel.Subtheme" Role="Subtheme" Multiplicity="1" />
+          <End Type="AchievmentsModel.SubThemeRel" Role="SubThemeRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subtheme">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubThemeRel">
+              <PropertyRef Name="SubThemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubThemeRel_Theme">
+          <End Type="AchievmentsModel.Theme" Role="Theme" Multiplicity="1" />
+          <End Type="AchievmentsModel.SubThemeRel" Role="SubThemeRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Theme">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubThemeRel">
+              <PropertyRef Name="ThemeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -296,14 +324,15 @@ warning 6002: The table/view 'Achievments.dbo.ThSubthRel' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="ThSubthRel" TypeName="AchievmentsModel.ThSubthRel" StoreEntitySet="ThSubthRel">
-            <EndProperty Name="Subtheme">
-              <ScalarProperty Name="ID" ColumnName="SubthemeID" />
-            </EndProperty>
-            <EndProperty Name="Theme">
-              <ScalarProperty Name="ID" ColumnName="ThemeID" />
-            </EndProperty>
-          </AssociationSetMapping>
+          <EntitySetMapping Name="SubThemeRels">
+            <EntityTypeMapping TypeName="AchievmentsModel.SubThemeRel">
+              <MappingFragment StoreEntitySet="SubThemeRel">
+                <ScalarProperty Name="ThemeID" ColumnName="ThemeID" />
+                <ScalarProperty Name="SubThemeID" ColumnName="SubThemeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

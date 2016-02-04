@@ -12,18 +12,13 @@ namespace AchiveNoter
     using System;
     using System.Collections.Generic;
     
-    public partial class Subtheme
+    public partial class SubThemeRel
     {
-        public Subtheme()
-        {
-            this.AchieveInfoes = new HashSet<AchieveInfo>();
-            this.SubThemeRels = new HashSet<SubThemeRel>();
-        }
-    
         public int ID { get; set; }
-        public string Name { get; set; }
+        public int SubThemeID { get; set; }
+        public int ThemeID { get; set; }
     
-        public virtual ICollection<AchieveInfo> AchieveInfoes { get; set; }
-        public virtual ICollection<SubThemeRel> SubThemeRels { get; set; }
+        public virtual Subtheme Subtheme { get; set; }
+        public virtual Theme Theme { get; set; }
     }
 }

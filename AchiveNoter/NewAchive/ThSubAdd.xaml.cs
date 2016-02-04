@@ -106,36 +106,53 @@ namespace AchiveNoter.NewAchive
         /// </summary>
         void CreateNewSubTheme(AchievmentsEntities ach)
         {
-            if (ach.Subthemes.Select(x => x.Name == TextBoxName.Text).FirstOrDefault())
+            if (ach.SubThemeRels.Select(x => 
+                x.Theme.Name == ComboBoxTheme.SelectedValue.ToString() 
+                && x.Subtheme.Name == TextBoxName.Text).FirstOrDefault())
             {
-                MessageBox.Show("Подтема уже существует");
+                MessageBox.Show("Подтема уже существует в этой теме");
                 return;
             }
 
-            //CreateManyToManyRel(ach);
+            CreateManyToManyRel(ach);
         }
 
         /// <summary>
         /// Добавление подтемы и создание связи - многие ко многим
         /// </summary>
         /// <param name="ach"></param>
-        /*void CreateManyToManyRel(AchievmentsEntities ach)
+       void CreateManyToManyRel(AchievmentsEntities ach)
         {
             //выбор темы из бд
             Theme th = ach.Themes.Where(x => x.Name == ComboBoxTheme.SelectedValue.ToString()).FirstOrDefault();
-            
-            //Добавлление подтемы, определение связи с темой
-            Subtheme st = new Subtheme() { Name = TextBoxName.Text };
-            st.Themes.Add(th);
+             
+           Subtheme st;
+
+           //Если подтема есть, связать её еще одной темой
+           if (ach.Subthemes.Select(t => t.Name.ToUpper().Equals(TextBoxName.Text.ToUpper())).FirstOrDefault())
+               st = ach.Subthemes.Where(t => t.Name == TextBoxName.Text).FirstOrDefault();
+           //если нет - создать новую
+           else
+           {
+               st = new Subtheme() { Name = TextBoxName.Text };
+               ach.Subthemes.Add(st);
+           }
+           
             
 
             //добавление связи к теме 
-            ach.Themes.Where(x => x.Name == ComboBoxTheme.SelectedValue.ToString()).FirstOrDefault().Subthemes.Add(st);
-            ach.Subthemes.Add(st);
+            ach.SubThemeRels.Add(
+                new SubThemeRel() 
+            { 
+                Theme=th,
+                Subtheme=st
+            }
+                );
+            
 
             
             ach.SaveChanges();
-        }*/
+        }
 
     }
 }

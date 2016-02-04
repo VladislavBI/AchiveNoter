@@ -29,5 +29,6 @@ namespace AchiveNoter
         public virtual DbSet<Password> Passwords { get; set; }
         public virtual DbSet<Subtheme> Subthemes { get; set; }
         public virtual DbSet<Theme> Themes { get; set; }
+        public virtual DbSet<SubThemeRel> SubThemeRels { get; set; }
     }
 }

@@ -17,13 +17,13 @@ namespace AchiveNoter
         public Theme()
         {
             this.AchieveInfoes = new HashSet<AchieveInfo>();
-            this.Subthemes = new HashSet<Subtheme>();
+            this.SubThemeRels = new HashSet<SubThemeRel>();
         }
     
         public int ID { get; set; }
         public string Name { get; set; }
     
         public virtual ICollection<AchieveInfo> AchieveInfoes { get; set; }
-        public virtual ICollection<Subtheme> Subthemes { get; set; }
+        public virtual ICollection<SubThemeRel> SubThemeRels { get; set; }
     }
 }
