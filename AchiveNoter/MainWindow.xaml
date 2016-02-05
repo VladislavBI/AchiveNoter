@@ -28,7 +28,7 @@
                 <MenuItem Header="Темы" />
             </MenuItem>
             <MenuItem Header="Общая информация" >
-                <MenuItem Header="Пользователь" />
+                <MenuItem Header="Пользователь" Click="MenuItem_Click" />
                 <MenuItem Header="Разработчик" />
             </MenuItem>
         </Menu>

@@ -44,22 +44,20 @@ namespace AchiveNoter.NewAchive
         /// </summary>
         void FillThemeCombobox()
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.InitialCatalog = "Achievments";
-            builder.IntegratedSecurity = true;
-            builder.DataSource = "localhost";
+            //строка подключения
+            
 
-            using(SqlConnection con=new SqlConnection(builder.ConnectionString))
+            //выборка имени из Theme
+            using(SqlConnection con=new SqlConnection(App.GetConnectString()))
             {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT Name FROM Theme", con);
                 SqlDataReader reader = cmd.ExecuteReader();
-
-
                 while (reader.Read())
                 {
                     ComboBoxTheme.Items.Add(reader[0].ToString());
                 }
+                ComboBoxTheme.SelectedIndex = 0;
             }
         }
         private void ButtonNO_Click(object sender, RoutedEventArgs e)

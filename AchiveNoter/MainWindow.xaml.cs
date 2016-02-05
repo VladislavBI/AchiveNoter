@@ -31,5 +31,11 @@ namespace AchiveNoter
             ac.Show();
             this.Close();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            UserInfo us = new UserInfo();
+            us.ShowDialog();
+        }
     }
 }

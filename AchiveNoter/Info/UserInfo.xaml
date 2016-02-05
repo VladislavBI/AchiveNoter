@@ -1,0 +1,46 @@
+﻿<Window x:Class="AchiveNoter.UserInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="UserInfo" Height="300" Width="395">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140*"/>
+            <ColumnDefinition Width="247*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+
+        </Grid.RowDefinitions>
+        <TextBlock Name="TBlName" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center" FontSize="35" Grid.ColumnSpan="2" />
+
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Очки" VerticalAlignment="Center" FontSize="20" Grid.Column="1" Height="27"  Grid.Row="1" Width="55"/>
+        <TextBlock Name="TBlPAll" Grid.Column="1"  Grid.Row="2" TextWrapping="Wrap" Text="Всего" TextAlignment="Center" FontSize="16"/>
+        <TextBlock Name="TBlPMnt" Grid.Column="1"  Grid.Row="3" TextWrapping="Wrap" Text="Месяц" TextAlignment="Center" FontSize="16"/>
+
+        <TextBlock HorizontalAlignment="Center" Grid.Row="4" Grid.Column="1"  TextWrapping="Wrap" Text="Лучший навык" VerticalAlignment="Center" FontSize="20" Height="27"  Width="136"/>
+        <TextBlock Name="TBlBSAll" Grid.Column="1"  Grid.Row="5" TextWrapping="Wrap" Text="Всего" TextAlignment="Center" FontSize="16"/>
+        <TextBlock Name="TBlBSMnt" Grid.Column="1"  Grid.Row="6" TextWrapping="Wrap" Text="Месяц" TextAlignment="Center" FontSize="16"/>
+
+        <TextBlock HorizontalAlignment="Center" Grid.Row="7"  Grid.Column="1" TextWrapping="Wrap" Text="Худший навык" VerticalAlignment="Center" FontSize="20" Height="28" Width="134"/>
+        <TextBlock Name="TBlWSAll" Grid.Column="1"  Grid.Row="8" TextWrapping="Wrap" Text="Всего" TextAlignment="Center" FontSize="16"/>
+        <TextBlock Name="TBlWSMnt" Grid.Column="1"  Grid.Row="9" TextWrapping="Wrap" Text="Месяц" TextAlignment="Center" FontSize="16"/>
+
+        <Image  Margin="10,10,10,10" Grid.Row="1" Grid.RowSpan="5" Source="NewUser.jpg" />
+        <TextBlock HorizontalAlignment="Center" Grid.Row="5" TextWrapping="Wrap" Text="Цели" VerticalAlignment="Center" FontSize="20" Height="26" Width="61" Grid.RowSpan="3"/>
+        <Button  Name="btnTargets" Content="Обзор" HorizontalAlignment="Center" Grid.Row="7" Width="76" Margin="32,10" Grid.RowSpan="3" FontSize="16"/>
+
+        <Button Content="Выход" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="10" VerticalAlignment="Center" Width="75" FontSize="16" Click="Button_Click"/>
+
+
+    </Grid>
+</Window>

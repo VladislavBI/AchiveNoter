@@ -78,6 +78,11 @@ namespace AchiveNoter
             if (ComboBoxSubtheme.Items.Count > 0)
                 ComboBoxSubtheme.SelectedIndex = 0;
         }
+        /// <summary>
+        /// Выбор изменяемого - тема/подтема
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ThemSubChooser ch = new ThemSubChooser();
@@ -85,6 +90,11 @@ namespace AchiveNoter
             
         }
 
+        /// <summary>
+        /// Добавление нового достижения
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             using (AchievmentsEntities ach = new AchievmentsEntities())
@@ -112,6 +122,11 @@ namespace AchiveNoter
             }
         }
 
+        /// <summary>
+        /// Изменение индекса CB темы - редактирование CB подтемы
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ComboBoxTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if(ComboBoxTheme.SelectedIndex!=-1)
@@ -122,6 +137,11 @@ namespace AchiveNoter
             
         }
 
+        /// <summary>
+        /// Возврат к окну названий
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             AchieveName an = new AchieveName(TextBlockName.Text);
