@@ -33,7 +33,7 @@
             </MenuItem>
         </Menu>
 
-        <Button Content="ДОБАВИТЬ!!!!!!!!"  FontSize="50" Grid.Column="1" Grid.Row="2" Click="Button_Click"/>
+        <Button Content="ДОБАВИТЬ!!!!!!!!"  FontSize="50" Grid.Column="1" Grid.Row="2" Click="Button_Click" IsDefault="True"/>
         <Label Content="У меня есть новое достижение!"    VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" FontSize="25" HorizontalContentAlignment="Center"/>
 
     </Grid>

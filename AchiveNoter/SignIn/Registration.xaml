@@ -26,7 +26,7 @@
         <Label Content="Повторите пароль" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Grid.Row="3" FontSize="16"/>
         <PasswordBox  Name="PassBoxPAg" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="120" Grid.Row="3" Grid.Column="1" FontSize="16"/>
         
-        <Button Content="Создать" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Grid.Row="4" FontSize="16" Click="Button_Click_1"/>
+        <Button Content="Создать" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Grid.Row="4" FontSize="16" Click="Button_Click_1" IsDefault="True"/>
         <Button Content="Отмена" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Grid.Column="1" Grid.Row="4" FontSize="16" Click="Button_Click"/>
         
     </Grid>

@@ -20,7 +20,7 @@
         <Label Name="LabelTheme"  Content="Основная тема"  Grid.Row="2" VerticalAlignment="Center"/>
         <ComboBox Name="ComboBoxTheme" Grid.Column="1" Height="23" Margin="5,0,0,0" Grid.Row="2" VerticalAlignment="Center" />
         
-        <Button Name="ButtonOK" Content="Создать" HorizontalAlignment="Left" Margin="15,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="75" Click="ButtonOK_Click"/>
+        <Button Name="ButtonOK" Content="Создать" HorizontalAlignment="Left" Margin="15,0,0,0" Grid.Row="3" VerticalAlignment="Center" Width="75" Click="ButtonOK_Click" IsDefault="True"/>
         <Button Name="ButtonNO" Content="Отмена" HorizontalAlignment="Right" Margin="0,0,15,0" Grid.Row="3" VerticalAlignment="Center" Width="75" Grid.Column="1" Click="ButtonNO_Click"/>
 
 

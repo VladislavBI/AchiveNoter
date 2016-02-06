@@ -33,14 +33,14 @@ namespace AchiveNoter
             {
                 Password p = ach.Passwords.Where(x => x.Name == TextBoxName.Text).FirstOrDefault();
                 byte[]b= Encoding.UTF8.GetBytes(PassBoxP.Password);
-                 
-                if (b.SequenceEqual(p.Password1))
-                {
-                    App.curPnID = p.ID;
-                    MainWindow mw = new MainWindow();
-                    mw.Show();
-                    this.Close();
-                }
+                if(p!=null)
+                    if (b.SequenceEqual(p.Password1))
+                    {
+                        App.curPnID = p.ID;
+                        MainWindow mw = new MainWindow();
+                        mw.Show();
+                        this.Close();
+                    }
 
             }
         }

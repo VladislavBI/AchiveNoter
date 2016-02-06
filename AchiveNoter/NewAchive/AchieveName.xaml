@@ -16,7 +16,7 @@
         <Label HorizontalAlignment="Center"   Content="Новое достижение " VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="20"/>
         <Label Content="Ваше достижение:" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" FontSize="16"/>
         <TextBox Name="TextBoxName" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" FontSize="16" Margin="5"/>
-        <Button Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Width="75" Height="25" Click="ButtonAdd_Click"/>
+        <Button Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Width="75" Height="25" Click="ButtonAdd_Click" IsDefault="True"/>
         <Button Name="ButtonBack" Content="Отменить" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,40,0" Grid.Row="2" VerticalAlignment="Center" Width="75" Height="25" Click="ButtonBack_Click"/>
 
     </Grid>

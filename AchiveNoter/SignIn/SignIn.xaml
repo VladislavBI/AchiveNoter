@@ -17,7 +17,7 @@
         <Label Content="Пароль" HorizontalAlignment="Center" Margin="0,3,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16"/>
         <PasswordBox  Name="PassBoxP" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Center" Width="120" Grid.Column="1" FontSize="16"/>
 
-        <Button Content="Вход" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Grid.Row="1" FontSize="16" Click="Button_Click"/>
+        <Button Content="Вход" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Grid.Row="1" FontSize="16" Click="Button_Click" IsDefault="True"/>
         <Button Content="Регистрация" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Grid.Column="1" Grid.Row="1" FontSize="16" Click="Button_Click_1"/>
 
     </Grid>
