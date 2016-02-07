@@ -48,17 +48,17 @@ namespace AchiveNoter
 
                 //Очки месяц
                 cmd = new SqlCommand(string.Format("SELECT SUM(Points) FROM AchieveInfo WHERE PersonID={0} AND Date Between convert(varchar(6), getdate(), 112) + '01' and dateadd(day, -1, dateadd(month, 1, convert(varchar(6), getdate(), 112) + '01'))", App.curPnID), con);
-                TBlPMnt.Text = DateTime.Now.Month.ToString()+": " + cmd.ExecuteScalar().ToString();
+                TBlPMnt.Text = App.MonthName[DateTime.Now.Month]+": " + cmd.ExecuteScalar().ToString();
 
                 //Лучший/худший результат всего
                 cmd = new SqlCommand(string.Format("SELECT DISTINCT(p.Name) , Sum(Points) FROM AchieveInfo ac LEFT OUTER JOIN Theme p ON ac.ThemeID=p.ID WHERE PersonID={0} GROUP BY p.Name", App.curPnID), con);
-                TBlBSAll.Text = FindMax(cmd.ExecuteReader());
-                TBlWSAll.Text = FindMin(cmd.ExecuteReader());
+                TBlBSAll.Text = "Всего: "+FindMax(cmd.ExecuteReader());
+                TBlWSAll.Text = "Всего: "+FindMin(cmd.ExecuteReader());
 
                 //Лучший/худший результат - месяц
                 cmd = new SqlCommand(string.Format("SELECT DISTINCT(p.Name) , Sum(Points) FROM AchieveInfo ac LEFT OUTER JOIN Theme p ON ac.ThemeID=p.ID WHERE PersonID={0} AND Date Between convert(varchar(6), getdate(), 112) + '01' and dateadd(day, -1, dateadd(month, 1, convert(varchar(6), getdate(), 112) + '01')) GROUP BY p.Name", App.curPnID), con);
-                TBlBSMnt.Text = FindMax(cmd.ExecuteReader());
-                TBlWSMnt.Text = FindMin(cmd.ExecuteReader());
+                TBlBSMnt.Text = App.MonthName[DateTime.Now.Month] + ": " + FindMax(cmd.ExecuteReader());
+                TBlWSMnt.Text = App.MonthName[DateTime.Now.Month] + ": " + FindMin(cmd.ExecuteReader());
             }
         }
 

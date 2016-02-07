@@ -37,5 +37,19 @@ namespace AchiveNoter
             UserInfo us = new UserInfo();
             us.ShowDialog();
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            DayInfo di = new DayInfo(true);
+            di.Show();
+            this.Close();
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            DayInfo di = new DayInfo(false);
+            di.Show();
+            this.Close();
+        }
     }
 }

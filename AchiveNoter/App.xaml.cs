@@ -32,5 +32,25 @@ namespace AchiveNoter
 
             return builder.ConnectionString;
         }
+
+        /// <summary>
+        /// Название месяцев
+        /// </summary>
+        public static List<string> MonthName = new List<string>()
+        {
+        "",
+        "Январь",
+        "Февраль",
+        "Март",
+        "Апрель",
+        "Май",
+        "Июнь",
+        "Июль",
+        "Август",
+        "Сентябрь",
+        "Октябрь",
+        "Ноябрь",
+        "Декабрь",
+        };
     }
 }

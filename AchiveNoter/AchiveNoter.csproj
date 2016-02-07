@@ -66,6 +66,9 @@
     <Compile Include="AchieveInfo.cs">
       <DependentUpon>User.tt</DependentUpon>
     </Compile>
+    <Compile Include="Info\DayInfo.xaml.cs">
+      <DependentUpon>DayInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DelegatesData.cs" />
     <Compile Include="HelloWindow.xaml.cs">
       <DependentUpon>HelloWindow.xaml</DependentUpon>
@@ -112,6 +115,10 @@
     <Compile Include="Info\UserInfo.xaml.cs">
       <DependentUpon>UserInfo.xaml</DependentUpon>
     </Compile>
+    <Page Include="Info\DayInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HelloWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
