@@ -33,7 +33,7 @@ namespace AchiveNoter
             {
                 Password p = ach.Passwords.Where(x => x.Name == TextBoxName.Text).FirstOrDefault();
                 byte[]b= Encoding.UTF8.GetBytes(PassBoxP.Password);
-                if(p!=null)
+                if (p != null)
                     if (b.SequenceEqual(p.Password1))
                     {
                         App.curPnID = p.ID;
@@ -41,7 +41,12 @@ namespace AchiveNoter
                         mw.Show();
                         this.Close();
                     }
-
+                    else
+                    {
+                        MessageBox.Show("Неверный пароль");
+                    }
+                else
+                    MessageBox.Show("Такой пользователь не зарегистрирован");
             }
         }
 
