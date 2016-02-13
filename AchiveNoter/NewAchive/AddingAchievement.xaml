@@ -22,7 +22,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Информация по достижению" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="16"/>
-        <TextBlock Name="TextBlockDate" HorizontalAlignment="Center" Margin="0,0,10,0" TextWrapping="Wrap" Text="Дата" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2" FontSize="16"/>
+        <DatePicker Name="TextBlockDate" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2" FontSize="16" SelectedDate="{x:Static s:DateTime.Now}"/>
 
         <TextBlock Name="TextBlockName" HorizontalAlignment="Center"  Grid.Row="2" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="16"/>
         <ComboBox x:Name="ComboBoxTheme" HorizontalAlignment="Left" Margin="21,19,0,0" Grid.Row="3" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBoxTheme_SelectionChanged"/>

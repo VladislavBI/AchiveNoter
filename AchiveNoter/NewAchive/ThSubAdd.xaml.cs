@@ -96,6 +96,10 @@ namespace AchiveNoter.NewAchive
            }
 
            ach.Themes.Add(new Theme() { Name = TextBoxName.Text });
+           ComboBoxTheme.Items.Add(TextBoxName.Text);
+           ComboBoxTheme.SelectedIndex=0;
+           CreateNewSubTheme(ach);
+
            ach.SaveChanges();
         }
 

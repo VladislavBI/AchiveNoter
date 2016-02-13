@@ -23,7 +23,7 @@ namespace AchiveNoter
         {
             InitializeComponent();
             TextBlockName.Text = name;
-            TextBlockDate.Text = DateTime.Now.ToShortDateString();
+            
             ComboBoxFill();
 
             CreateDelegates();
@@ -101,18 +101,24 @@ namespace AchiveNoter
             {
                 Password p=ach.Passwords.Where(t=>t.ID==App.curPnID).FirstOrDefault();
                 Theme th = ach.Themes.Where(t => t.Name == ComboBoxTheme.SelectedValue.ToString()).FirstOrDefault();
-                Subtheme sth = ach.Subthemes.Where(t => t.Name == ComboBoxSubtheme.SelectedValue.ToString()).FirstOrDefault();
+                Subtheme sth=new Subtheme();
+                try 
+                { 
+                  sth= ach.Subthemes.Where(t => t.Name == ComboBoxSubtheme.SelectedValue.ToString()).FirstOrDefault();
+                }
+                catch { }
                 AchieveInfo achI = new AchieveInfo()
                 {
-                    Date = DateTime.Now,
+                    Date = TextBlockDate.SelectedDate.Value.Date,
                     Points = (int)PointsSlider.Value,
                     Name = TextBlockName.Text,
                     Subscribe = TextBoxSubscr.Text,
                     Password = p,
-                    Theme=th,
-                    Subtheme=sth
+                    Theme=th
                 };
-
+                if (sth != null)
+                    achI.Subtheme = sth;
+                
                 ach.AchieveInfoes.Add(achI);
                 ach.SaveChanges();
 

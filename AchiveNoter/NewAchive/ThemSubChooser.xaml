@@ -6,6 +6,6 @@
         <TextBlock HorizontalAlignment="Center" Margin="0,5,0,0" TextWrapping="Wrap" Text="Что вы хотите добавить?" VerticalAlignment="Top" FontSize="16"/>
         <Button Content="Тема" HorizontalAlignment="Left" Margin="35,0,0,0" VerticalAlignment="Center" Width="75" FontSize="16" Click="Button_Click"/>
         <Button Content="Подтема" HorizontalAlignment="Right" Margin="0,0,35,0" VerticalAlignment="Center" Width="75" FontSize="16" Click="Button_Click"/>
-        <Button Content="Отмена" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="75" FontSize="16"/>
+        <Button Content="Отмена" HorizontalAlignment="Center" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="75" FontSize="16" Click="Button_Click_1"/>
     </Grid>
 </Window>

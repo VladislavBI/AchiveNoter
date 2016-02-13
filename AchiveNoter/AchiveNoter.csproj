@@ -85,6 +85,9 @@
     <Compile Include="SignIn\SignIn.xaml.cs">
       <DependentUpon>SignIn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewAchive\ThemSubChooser.xaml.cs">
+      <DependentUpon>ThemSubChooser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Subtheme.cs">
       <DependentUpon>User.tt</DependentUpon>
     </Compile>
@@ -93,9 +96,6 @@
     </Compile>
     <Compile Include="Theme.cs">
       <DependentUpon>User.tt</DependentUpon>
-    </Compile>
-    <Compile Include="NewAchive\ThemSubChooser.xaml.cs">
-      <DependentUpon>ThemSubChooser.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.Context.cs">
       <AutoGen>True</AutoGen>
@@ -188,6 +188,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
