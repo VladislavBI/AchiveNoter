@@ -41,14 +41,25 @@ namespace AchiveNoter
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             DayInfo di = new DayInfo(true);
-            di.Show();
+            //для обхода ошибки с отсутствием достижений
+            try
+            {
+                di.Show();
+            }
+            catch { }
             this.Close();
+           
         }
 
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
             DayInfo di = new DayInfo(false);
-            di.Show();
+            //для обхода ошибки с отсутствием достижений
+            try
+            {
+                di.Show();
+            }
+            catch { }
             this.Close();
         }
     }

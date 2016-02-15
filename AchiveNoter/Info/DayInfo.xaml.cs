@@ -284,6 +284,25 @@ namespace AchiveNoter
           
         }
 
+        private void DGInfo_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                DataRowView dRowView = (DataRowView)DGInfo.SelectedItems[0];
+                DataRow dRow = dRowView.Row;
+                string cellContent = dRow[2].ToString();
+
+                using (AchievmentsEntities ach = new AchievmentsEntities())
+                {
+                    AchieveInfo aI = GetFullAchList().Where(p => p.Name == cellContent).FirstOrDefault();
+                    WindowDetailedInfo wdi = new WindowDetailedInfo(aI);
+                    wdi.ShowDialog();
+                }
+
+            }
+            catch { }
+        }
+
         
     }
 }
