@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AchiveNoter.Info;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace AchiveNoter
     /// </summary>
     public partial class WindowDetailedInfo : Window
     {
+        AchieveInfo achI;
         public WindowDetailedInfo(AchieveInfo aI)
         {
             InitializeComponent();
@@ -30,6 +32,27 @@ namespace AchiveNoter
             TBlSubThemeName.Text = aI.Subtheme.Name;
             TBlUserName.Text = aI.Password.Name;
             TBlSummary.Text = aI.Subscribe;
+
+            achI = aI;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeInfo ci = new ChangeInfo(achI);
+            this.Close();
+            ci.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            DayInfo di = new DayInfo(false);
+            //для обхода ошибки с отсутствием достижений
+            try
+            {
+                di.Show();
+            }
+            catch { }
+            this.Close();
         }
     }
 }

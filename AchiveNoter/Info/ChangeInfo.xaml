@@ -1,0 +1,47 @@
+﻿<Window x:Class="AchiveNoter.Info.ChangeInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ChangeInfo" Height="474.569" Width="367.858">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" TextWrapping="Wrap" Text="Информация по достижению" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="16"/>
+        <DatePicker Name="TextBlockDate" HorizontalAlignment="Center" Margin="0,0,10,0" VerticalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2" FontSize="16" SelectedDate="{Binding Path=aDate}"/>
+
+        <TextBox Name="TextBoxName" HorizontalAlignment="Center"  Grid.Row="2" TextWrapping="Wrap" Text="{Binding Path=aName}" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="16" />
+
+        <TextBlock HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="Тема" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="Подтема" VerticalAlignment="Top"  Grid.Column="1" />
+        <ComboBox x:Name="ComboBoxTheme" HorizontalAlignment="Left" Margin="21,19,0,0" Grid.Row="3" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBoxTheme_SelectionChanged"/>
+        <ComboBox x:Name="ComboBoxSubtheme" HorizontalAlignment="Right" Margin="0,19,21,0" Grid.Row="3" VerticalAlignment="Top" Width="140" Grid.Column="1" />
+        <Button Grid.ColumnSpan="2" Content="Создать новое" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Top" Width="120" FontSize="16" Margin="120,16,120,0" Click="Button_Click" />
+
+        <TextBlock HorizontalAlignment="Center" Grid.Row="5" TextWrapping="Wrap" Text="Балы" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="16"/>
+        <Slider Name="PointsSlider" Grid.ColumnSpan="2" Grid.Row="6" VerticalAlignment="Center" Margin="30,0,0,0" SmallChange="1"  Value="{Binding Path=aPoints}" UseLayoutRounding="False" Minimum="1" Maximum="10" Ticks="1 2 3 4 5 6 7 8 9 10" IsSnapToTickEnabled="True" />
+
+        <TextBlock HorizontalAlignment="Left" Grid.Row="6" TextWrapping="Wrap" Text="{Binding ElementName=PointsSlider, Path=Value}" VerticalAlignment="Center" Margin="5,0,0,0" />
+        <TextBlock HorizontalAlignment="Center" Grid.Row="7" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Center" Grid.ColumnSpan="2" FontSize="16" />
+        <TextBox  Name="TextBoxSubscr" Grid.Row="8" TextWrapping="Wrap"  Grid.ColumnSpan="2" Grid.RowSpan="2" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" Text="{Binding Path=aSubscribe}"/>
+
+        <Button Content="Изменить" Grid.Row="10" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Width="80" IsDefault="True" Click="Button_Click_1"/>
+        <Button Content="Назад" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Center" Grid.Column="1" FontSize="16" Width="80" Click="Button_Click_2"/>
+
+
+    </Grid>
+</Window>

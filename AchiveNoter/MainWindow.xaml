@@ -20,7 +20,7 @@
             <MenuItem Header="Файл">
                 <MenuItem Header="Выход" />
             </MenuItem>
-            <MenuItem Header="Статистика"  >
+            <MenuItem Header="Статистика" >
                 <MenuItem Header="Сегодня" Click="MenuItem_Click_1"/>
                 <MenuItem Header="Период" Click="MenuItem_Click_2"/>
             </MenuItem>

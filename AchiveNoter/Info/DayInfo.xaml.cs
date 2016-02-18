@@ -23,6 +23,7 @@ namespace AchiveNoter
     {
         DataTable achievesInfo;
         bool day;
+        bool detailedInfo = false;
         public DayInfo(bool day)
         {
             InitializeComponent();
@@ -261,8 +262,11 @@ namespace AchiveNoter
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MainWindow mw = new MainWindow();
-            mw.Show();
+            if (!detailedInfo)
+            {
+                MainWindow mw = new MainWindow();
+                mw.Show();
+            }
             
         }
 
@@ -296,7 +300,9 @@ namespace AchiveNoter
                 {
                     AchieveInfo aI = GetFullAchList().Where(p => p.Name == cellContent).FirstOrDefault();
                     WindowDetailedInfo wdi = new WindowDetailedInfo(aI);
-                    wdi.ShowDialog();
+                    detailedInfo = true;
+                    this.Close();
+                    wdi.Show();
                 }
 
             }

@@ -19,6 +19,7 @@ namespace AchiveNoter
     /// </summary>
     public partial class AddingAchievement : Window
     {
+        
         public AddingAchievement(string name)
         {
             InitializeComponent();
@@ -78,6 +79,7 @@ namespace AchiveNoter
             if (ComboBoxSubtheme.Items.Count > 0)
                 ComboBoxSubtheme.SelectedIndex = 0;
         }
+
         /// <summary>
         /// Выбор изменяемого - тема/подтема
         /// </summary>
