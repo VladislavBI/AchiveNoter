@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AchiveNoter.Info;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,6 +61,13 @@ namespace AchiveNoter
                 di.Show();
             }
             catch { }
+            this.Close();
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            Filter f = new Filter();
+            f.Show();
             this.Close();
         }
     }

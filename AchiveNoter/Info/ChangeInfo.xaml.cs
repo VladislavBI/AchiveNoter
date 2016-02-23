@@ -120,6 +120,7 @@ namespace AchiveNoter.Info
                 ai.Subtheme = ach.Subthemes.Where(p => p.Name == ComboBoxSubtheme.SelectedValue).FirstOrDefault();
 
                 AchieveInfo temp= ach.AchieveInfoes.Find(ai.ID);
+
                 temp.Date = ai.Date;
                 temp.Name = ai.Name;
                 temp.Points = ai.Points;

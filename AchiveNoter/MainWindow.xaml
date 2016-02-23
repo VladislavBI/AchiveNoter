@@ -22,7 +22,8 @@
             </MenuItem>
             <MenuItem Header="Статистика" >
                 <MenuItem Header="Сегодня" Click="MenuItem_Click_1"/>
-                <MenuItem Header="Период" Click="MenuItem_Click_2"/>
+                <MenuItem Header="Все время" Click="MenuItem_Click_2"/>
+                <MenuItem Header="Период" Click="MenuItem_Click_3"/>
             </MenuItem>
             <MenuItem Header="Справочник">
                 <MenuItem Header="Темы" />

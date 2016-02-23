@@ -1,0 +1,31 @@
+﻿<Window x:Class="AchiveNoter.Info.Filter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"    
+        
+        Title="Filter" Height="183" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="39*"/>
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="От" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="1" Height="26" Margin="61,10,61,3" Width="24"/>
+        <Label Content="До" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Height="26" Margin="60,10,60,3" Width="26"/>
+
+        <DatePicker Name="From"  HorizontalAlignment="Center" Margin="9,10,9,0" VerticalAlignment="Top" SelectedDate="{x:Static s:DateTime.Now}" Grid.Row="2" Height="24" Width="128"/>
+        <DatePicker Name="To" HorizontalAlignment="Center"  Margin="9,10,9,0" VerticalAlignment="Top" SelectedDate="{x:Static s:DateTime.Now}" Grid.Row="2" Grid.Column="1" Height="24" Width="128"/>
+
+        <Button Content="Применить" HorizontalAlignment="Center" Margin="36,1,36,4" VerticalAlignment="Center" Width="74" Click="Button_Click" Grid.Row="3" Height="20"/>
+        <Button Content="Отмена" HorizontalAlignment="Center" Margin="36,1,36,4" VerticalAlignment="Center" Width="74" Grid.Row="3" Grid.Column="1" Height="20"/>
+
+
+
+
+    </Grid>
+</Window>

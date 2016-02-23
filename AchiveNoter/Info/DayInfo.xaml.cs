@@ -22,7 +22,13 @@ namespace AchiveNoter
     public partial class DayInfo : Window
     {
         DataTable achievesInfo;
+        /// <summary>
+        /// День или период
+        /// </summary>
         bool day;
+        /// <summary>
+        /// Открывается окно детальной информации (чтобы не открывалось главное окно)  
+        /// </summary>
         bool detailedInfo = false;
         public DayInfo(bool day)
         {
@@ -30,11 +36,7 @@ namespace AchiveNoter
             this.day = day;
             FillingNP();
 
-            achievesInfo = new DataTable();
-            achievesInfo.Columns.Add("Дата", typeof(DateTime));
-            achievesInfo.Columns.Add("Тема");
-            achievesInfo.Columns.Add("Название");
-            achievesInfo.Columns.Add("Очки", typeof(int));
+            achITableCreate();
 
 
             var ach = GetFullAchList();
@@ -43,6 +45,39 @@ namespace AchiveNoter
                 else
                     FullPeriodCreate(ach);
             
+            
+        }
+
+        /// <summary>
+        /// Констурктор для периода
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        public DayInfo(DateTime from, DateTime to) 
+        {
+            InitializeComponent();
+            FillingNP();
+            achITableCreate();
+            var ach = GetFullAchList();
+            
+            ChBD.IsChecked = true;
+            dpFrom.Text=from.Date.ToString();
+            dpTo.Text = to.ToString() ;
+
+            Button_Click_1(this, new RoutedEventArgs());
+        }
+
+        /// <summary>
+        /// создание таблицы для заполнение в Datagrid
+        /// </summary>
+        void achITableCreate()
+        {
+            achievesInfo = new DataTable();
+            achievesInfo.Columns.Add("Дата", typeof(DateTime));
+            achievesInfo.Columns.Add("Тема");
+            achievesInfo.Columns.Add("Название");
+            achievesInfo.Columns.Add("Очки", typeof(int));
+
             
         }
 
@@ -260,6 +295,7 @@ namespace AchiveNoter
             
         }
 
+        
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!detailedInfo)
