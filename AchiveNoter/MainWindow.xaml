@@ -1,13 +1,14 @@
 ﻿<Window x:Class="AchiveNoter.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" StateChanged="Window_StateChanged" Closing="Window_Closing">
+    
     <Window.Resources>
         <ContextMenu x:Key="TrayMenu">
-            <MenuItem Header="Hide" Click="ShowHideMainWindow" />
-            <MenuItem Header="Item2" />
+            <MenuItem Header="Отобразить" Click="ShowHideMainWindow" />
+            <MenuItem Header="Добавить событие" Click="Button_Click"/>
             <Separator />
-            <MenuItem Header="Exit" Click="MenuExitClick" />
+            <MenuItem Header="Выход" Click="MenuExitClick" />
         </ContextMenu>
     </Window.Resources>
 
@@ -26,8 +27,8 @@
         </Grid.ColumnDefinitions>
 
         <Menu   Grid.ColumnSpan="3" FontSize="16" VerticalAlignment="Top">
-            <MenuItem Header="Файл">
-                <MenuItem Header="Выход" />
+            <MenuItem Header="Файл" >
+                <MenuItem Header="Выход" Click="MenuExitClick"/>
             </MenuItem>
             <MenuItem Header="Статистика" >
                 
