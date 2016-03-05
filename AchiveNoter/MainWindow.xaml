@@ -5,7 +5,7 @@
     
     <Window.Resources>
         <ContextMenu x:Key="TrayMenu">
-            <MenuItem Header="Отобразить" Click="ShowHideMainWindow" />
+            <MenuItem Header="Спрятать" Click="ShowHideMainWindow" />
             <MenuItem Header="Добавить событие" Click="Button_Click"/>
             <Separator />
             <MenuItem Header="Выход" Click="MenuExitClick" />

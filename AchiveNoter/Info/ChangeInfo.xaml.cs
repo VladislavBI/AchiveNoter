@@ -39,7 +39,7 @@ namespace AchiveNoter.Info
             
             ComboBoxTheme.SelectedValue = ai.Theme.Name;
             ComboBoxSubtheme.SelectedValue=ai.Subtheme.Name;
-            
+           
         }
 
         /// <summary>

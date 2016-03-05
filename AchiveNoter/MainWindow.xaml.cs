@@ -108,7 +108,7 @@ namespace AchiveNoter
                 // запоминаем текущее состояние окна
                 CurrentWindowState = this.WindowState;
                 // меняем надпись в менюшке
-                (TrayMenu.Items[0] as MenuItem).Header = "Show";
+                (TrayMenu.Items[0] as MenuItem).Header = "Отобразить";
                 // прячем окно
                 Hide();
                 closed = false;
@@ -120,6 +120,7 @@ namespace AchiveNoter
             }
         }
 
+
         /// <summary>
         /// Класс для иконкм
         /// </summary>
@@ -128,15 +129,23 @@ namespace AchiveNoter
         /// Класс для контекстного меню трея - ссылка на XAML
         /// </summary>
         private ContextMenu TrayMenu = null;
+
         private WindowState fCurrentWindowState = WindowState.Normal;
+        /// <summary>
+        /// Сохранение состояния окна, возврат окна в норм состояние в момент показа
+        /// </summary>
         public WindowState CurrentWindowState
         {
             get { return fCurrentWindowState; }
             set { fCurrentWindowState = value; }
         }
+       
         private bool fCanClose = false;
+        /// <summary>
+        /// флаг, позволяющий или запрещающий выход из приложения
+        /// </summary>
         public bool CanClose
-        { // флаг, позволяющий или запрещающий выход из приложения
+        {  
             get { return fCanClose; }
             set { fCanClose = value; }
         }
@@ -174,7 +183,7 @@ namespace AchiveNoter
                     {
                         // по правой кнопке (и всем остальным) показываем меню
                         TrayMenu.IsOpen = true;
-                        Activate(); // нужно отдать окну фокус, см. ниже
+                        Activate(); // отдать окну фокус
                     }
                 };
                 result = true;
@@ -187,7 +196,11 @@ namespace AchiveNoter
             return result;
         }
 
-
+        /// <summary>
+        /// Функция показа или скрытия главного окна
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ShowHideMainWindow(object sender, RoutedEventArgs e)
         {
             TrayMenu.IsOpen = false; // спрячем менюшку, если она вдруг видима

@@ -59,8 +59,8 @@ namespace AchiveNoter
             FillingNP();
             achITableCreate();
             var ach = GetFullAchList();
-            
-            ChBD.IsChecked = true;
+
+            ExpBD.IsExpanded = true;
             dpFrom.Text=from.Date.ToString();
             dpTo.Text = to.ToString() ;
 
@@ -158,8 +158,8 @@ namespace AchiveNoter
                 
                if(day)
                {
-                
-                if (chbTh.IsChecked == false && chbSTh.IsChecked == false)
+
+                   if (ExpTh.IsExpanded == false && ExpSTh.IsExpanded == false)
                 {
                     MessageBox.Show("Сегодня нет достижений");
                     this.Close();
@@ -168,17 +168,17 @@ namespace AchiveNoter
                 else 
                 {
                     MessageBox.Show("Сегодня нет таких достижений");
-                    chbTh.IsChecked = false;
-                    chbSTh.IsChecked = false;
+                    ExpTh.IsExpanded = false;
+                    ExpSTh.IsExpanded = false;
                     TodayListCreate(GetFullAchList());
                 }  
                }
                else
                {
                    MessageBox.Show("Нет таких достижений");
-                   chbTh.IsChecked = false;
-                   chbSTh.IsChecked = false;
-                   ChBD.IsChecked = false;
+                   ExpTh.IsExpanded = false;
+                   ExpSTh.IsExpanded = false;
+                   ExpBD.IsExpanded = false;
                    FullPeriodCreate(GetFullAchList());
                }
             }
@@ -192,7 +192,7 @@ namespace AchiveNoter
         /// </summary>
         void TodayListCreate(IQueryable<AchieveInfo> ach)
         {
-            ChBD.Visibility = Visibility.Collapsed;
+            ExpBD.Visibility = Visibility.Collapsed;
             tblFr.Visibility = Visibility.Collapsed;
             tblTo.Visibility = Visibility.Collapsed;
             dpFrom.Visibility = Visibility.Collapsed;
@@ -276,13 +276,13 @@ namespace AchiveNoter
            
             
                 var ach=GetFullAchList();
-                if (chbTh.IsChecked == true)
+                if (ExpTh.IsExpanded == true)
                     ach = GetSelectedTheme(ach);
-                if (chbSTh.IsChecked == true)
+                if (ExpSTh.IsExpanded == true)
                     ach = GetSelectedSubTheme(ach);
 
 
-                if (ChBD.IsChecked == true)
+                if (ExpBD.IsExpanded == true)
                     PeriodDayCreate(ach);
 
                 else

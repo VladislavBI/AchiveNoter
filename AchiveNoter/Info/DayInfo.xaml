@@ -2,19 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:s="clr-namespace:System;assembly=mscorlib"    
-        Title="DayInfo" Height="300" Width="788" Closing="Window_Closing">
+        Title="DayInfo" Height="350" Width="820" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -27,19 +27,29 @@
         <TextBlock Name="tblName" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Center" FontSize="16"/>
         <TextBlock Name="tblPoints" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Очки" VerticalAlignment="Center" Grid.Row="1" FontSize="16"/>
 
-        <CheckBox  Name="chbTh" Grid.Column="1" HorizontalAlignment="Center"  Content="Тема" VerticalAlignment="Center" Grid.Row="2" FontSize="16"/>
-        <ComboBox Name="cbTheme" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="3" VerticalAlignment="Center" Width="132" SelectionChanged="cbTheme_SelectionChanged"/>
+        <Expander  Name="ExpTh" Grid.Column="1"    Grid.Row="2" FontSize="16" Grid.RowSpan="2" Header="Тема" >
+            <ComboBox Name="cbTheme" Grid.Column="1"  Grid.Row="3"   SelectionChanged="cbTheme_SelectionChanged"/>
+        </Expander>
+        <Expander  Name="ExpSTh" Grid.Column="1"  Header="Подтема"  Grid.Row="4" FontSize="16" Grid.RowSpan="2">
+            <ComboBox Name="cbSubtheme" Grid.Column="1"  Grid.Row="5" VerticalAlignment="Center" />
+        </Expander>
+        <Expander  Name="ExpBD" Grid.Column="1" Header="Дата" Grid.Row="6" FontSize="16" Grid.RowSpan="3">
+        <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock  Name="tblFr"  HorizontalAlignment="Left" TextWrapping="Wrap" Text="От" VerticalAlignment="Center" FontSize="16" Margin="45,0,0,0"/>
+                <DatePicker Name="dpFrom"   Grid.Row="1" VerticalAlignment="Center"  Margin="1,0,5,0" SelectedDate="{x:Static s:DateTime.Now}"/>
 
-        <CheckBox  Name="chbSTh" Grid.Column="1" HorizontalAlignment="Center"  Content="Подтема" VerticalAlignment="Center" Grid.Row="4" FontSize="16"/>
-        <ComboBox Name="cbSubtheme" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="132"/>
-
-        <CheckBox  Name="ChBD" Grid.Column="1" HorizontalAlignment="Center"  Content="Дата" VerticalAlignment="Center" Grid.Row="6" FontSize="16"/>
-        <TextBlock  Name="tblFr" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="От" VerticalAlignment="Center" Grid.Row="7" FontSize="16" Margin="45,0,0,0"/>
-        <DatePicker Name="dpFrom" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Center" Width="102" Margin="5,0,0,0" SelectedDate="{x:Static s:DateTime.Now}"/>
-
-        <TextBlock  Name="tblTo" Grid.Column="1" HorizontalAlignment="Right" TextWrapping="Wrap" Text="До" VerticalAlignment="Center" Grid.Row="7" FontSize="16"  Margin="0,0,45,0"/>
-        <DatePicker Name="dpTo" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,5,0" Grid.Row="8" VerticalAlignment="Center" Width="102" SelectedDate="{x:Static s:DateTime.Now}"/>
-
+                <TextBlock  Name="tblTo" Grid.Column="1" HorizontalAlignment="Right" TextWrapping="Wrap" Text="До" VerticalAlignment="Center" FontSize="16"  Margin="0,0,45,0"/>
+                <DatePicker Name="dpTo" Grid.Column="1"  Margin="5,0,1,0" Grid.Row="1" VerticalAlignment="Center"  SelectedDate="{x:Static s:DateTime.Now}"/>
+        </Grid>
+        </Expander>
         <Button   Content="Применить " Grid.Column="1" HorizontalAlignment="Left" Grid.Row="9" VerticalAlignment="Center" Width="75" Grid.RowSpan="2" Click="Button_Click_1"/>
         <Button Content="Сбросить " Grid.Column="1" HorizontalAlignment="Right" Grid.Row="9" VerticalAlignment="Center" Width="75" Grid.RowSpan="2" Click="Button_Click_2"/>
         <Button Content="Назад" Grid.Column="1" HorizontalAlignment="Center"  Grid.Row="10" VerticalAlignment="Bottom" Width="75" Grid.RowSpan="2" Margin="0,0,0,5" Click="Button_Click"/>
