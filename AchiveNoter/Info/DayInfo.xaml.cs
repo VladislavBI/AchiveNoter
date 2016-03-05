@@ -21,7 +21,8 @@ namespace AchiveNoter
     /// </summary>
     public partial class DayInfo : Window
     {
-        DataTable achievesInfo;
+       // List<Ahcts> achie { get; set; }
+        DataTable achievesInfo {get;set;}
         /// <summary>
         /// День или период
         /// </summary>
@@ -33,10 +34,14 @@ namespace AchiveNoter
         public DayInfo(bool day)
         {
             InitializeComponent();
+            
+            achITableCreate();
+            
+            
             this.day = day;
             FillingNP();
 
-            achITableCreate();
+            
 
 
             var ach = GetFullAchList();
@@ -47,6 +52,9 @@ namespace AchiveNoter
             
             
         }
+
+
+
 
         /// <summary>
         /// Констурктор для периода
@@ -239,7 +247,8 @@ namespace AchiveNoter
                 achievesInfo.Rows.Add(row);
             }
             FillingPoints(ach);
-            DGInfo.ItemsSource = achievesInfo.DefaultView;
+           // DGInfo.Items.Refresh();
+            DGInfo.ItemsSource=achievesInfo.AsDataView();
         }
         #endregion
 
@@ -346,5 +355,13 @@ namespace AchiveNoter
         }
 
         
+    }
+
+    public class Ahcts
+    {
+        public DateTime date;
+        public string theme;
+        public string name;
+        public int points;
     }
 }

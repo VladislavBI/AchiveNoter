@@ -22,7 +22,15 @@
             <ColumnDefinition Width="70*"/>
             <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid Name="DGInfo" Margin="0,0,10,0"   Grid.RowSpan="12" MouseDoubleClick="DGInfo_MouseDoubleClick"/>
+        <DataGrid Name="DGInfo" Margin="0,0,10,0"   Grid.RowSpan="12" MouseDoubleClick="DGInfo_MouseDoubleClick" AutoGenerateColumns="false" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Path=Название}" Width="5*"/>
+                <DataGridTextColumn Header="Время" Binding="{Binding Path=Дата, StringFormat={}\{0:dd/MM/yyyy\}}" Width="3*"/>
+                <DataGridTextColumn Header="Тема" Binding="{Binding Path=Тема}" Width="5*"/>
+                <DataGridTextColumn Header="Очки" Binding="{Binding Path=Очки}" Width="2*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
 
         <TextBlock Name="tblName" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Имя" VerticalAlignment="Center" FontSize="16"/>
         <TextBlock Name="tblPoints" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Очки" VerticalAlignment="Center" Grid.Row="1" FontSize="16"/>
