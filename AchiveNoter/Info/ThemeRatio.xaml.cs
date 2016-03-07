@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,58 +12,36 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace AchiveNoter
+namespace AchiveNoter.Info
 {
     /// <summary>
-    /// Interaction logic for DayInfo.xaml
+    /// Interaction logic for ThemeRatio.xaml
     /// </summary>
-    public partial class DayInfo : Window
+    public partial class ThemeRatio : Window
     {
-       // List<Ahcts> achie { get; set; }
-        DataTable achievesInfo {get;set;}
         /// <summary>
         /// День или период
         /// </summary>
         bool day;
-        /// <summary>
-        /// Открывается окно детальной информации (чтобы не открывалось главное окно)  
-        /// </summary>
-        bool detailedInfo = false;
-        public DayInfo(bool day)
+        public ThemeRatio(bool day)
         {
             InitializeComponent();
-            
-            achITableCreate();
-            
-            
             this.day = day;
-            FillingNP();
-
-            
-
-
             var ach = GetFullAchList();
-                if (day)
-                    TodayListCreate(ach);
-                else
-                    FullPeriodCreate(ach);
-            
-            
+            if (day)
+                TodayListCreate(ach);
+            else
+                FullPeriodCreate(ach);
         }
 
-
-
-
-        /// <summary>
+                /// <summary>
         /// Констурктор для периода
         /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
-        public DayInfo(DateTime from, DateTime to) 
+        public ThemeRatio(DateTime from, DateTime to) 
         {
             InitializeComponent();
-            FillingNP();
-            achITableCreate();
             var ach = GetFullAchList();
 
             ExpBD.IsExpanded = true;
@@ -74,41 +50,15 @@ namespace AchiveNoter
 
             Button_Click_1(this, new RoutedEventArgs());
         }
-
         /// <summary>
-        /// создание таблицы для заполнение в Datagrid
-        /// </summary>
-        void achITableCreate()
-        {
-            achievesInfo = new DataTable();
-            achievesInfo.Columns.Add("Дата", typeof(DateTime));
-            achievesInfo.Columns.Add("Тема");
-            achievesInfo.Columns.Add("Название");
-            achievesInfo.Columns.Add("Очки", typeof(int));
-
-            
-        }
-
-        /// <summary>
-        /// Получить все достижения для текущего пользователя
-        /// </summary>
-        /// <returns></returns>
-        IQueryable<AchieveInfo> GetFullAchList()
-        {
-                AchievmentsEntities ach = new AchievmentsEntities();
-                var aa=ach.AchieveInfoes.Where(p=>p.Password.ID==App.curPnID);
-                return aa;
-            
-        }
-        /// <summary>
-        /// Заполнение стартовой информации (не таблицы)
+        /// Заполнение стартовой информации (не по достижениям)
         /// </summary>
         void FillingNP()
         {
             using (AchievmentsEntities ach = new AchievmentsEntities())
             {
                 Password p = ach.Passwords.Where(x => x.ID == App.curPnID).FirstOrDefault();
-                tblName.Text ="Пользователь: "+ p.Name;
+                TBlInfo.Text += "Пользователь: " + p.Name+"\n";
                 ComboBoxFill();
             }
         }
@@ -149,8 +99,7 @@ namespace AchiveNoter
             if (cbSubtheme.Items.Count > 0)
                 cbSubtheme.SelectedIndex = 0;
         }
-
-        /// <summary>
+         /// <summary>
         /// Выбор способа заполнения очков
         /// </summary>
         /// <param name="ach"></param>
@@ -159,12 +108,12 @@ namespace AchiveNoter
             try
             {
                 int sum = ach.Sum(p => p.Points);
-                tblPoints.Text = "Очки: " + sum.ToString();
+                TBlInfo.Text += "Очки: " + sum.ToString()+"\n";
             }
             catch 
             {
                 
-               if(day)
+               /*if(day)
                {
 
                    if (ExpTh.IsExpanded == false && ExpSTh.IsExpanded == false)
@@ -188,15 +137,26 @@ namespace AchiveNoter
                    ExpSTh.IsExpanded = false;
                    ExpBD.IsExpanded = false;
                    FullPeriodCreate(GetFullAchList());
-               }
+               }*/
             }
             
         }
 
-  
-        #region создание таблицы
         /// <summary>
-        /// Создание таблицы на сегодня
+        /// Получить все достижения для текущего пользователя
+        /// </summary>
+        /// <returns></returns>
+        IQueryable<AchieveInfo> GetFullAchList()
+        {
+            AchievmentsEntities ach = new AchievmentsEntities();
+            var aa = ach.AchieveInfoes.Where(p => p.Password.ID == App.curPnID);
+            return aa;
+
+        }
+
+        #region оздание и вывод списка достижений
+        /// <summary>
+        /// Создание списка достижений на сегодня
         /// </summary>
         void TodayListCreate(IQueryable<AchieveInfo> ach)
         {
@@ -207,19 +167,19 @@ namespace AchiveNoter
             dpTo.Visibility = Visibility.Collapsed;
             DateTime d=DateTime.Now.Date;
             ach = ach.Where(p => p.Date == d);
-            TableToDGBinding(ach);
+            DataMainPreparatons(ach);
         }
 
         /// <summary>
-        /// Создание полной таблицы достижений
+        /// Создание полного списка достижений
         /// </summary>
         void FullPeriodCreate(IQueryable<AchieveInfo> ach)
         {
-            TableToDGBinding(ach);
+            DataMainPreparatons(ach);
         }
 
         /// <summary>
-        /// Создание DataGrid достижений в определенный период
+        /// Выборка достижений в определенный период
         /// </summary>
         void PeriodDayCreate(IQueryable<AchieveInfo> ach)
         {
@@ -227,28 +187,37 @@ namespace AchiveNoter
             DateTime d2=dpTo.SelectedDate.Value.Date;
 
             ach = ach.Where(p => p.Date >= d && p.Date <= d2);
-            TableToDGBinding(ach);
+            DataMainPreparatons(ach);
         }
 
         /// <summary>
-        /// Привязка полученных данных к DataGrid
+        /// Сортировка достижений, вывод основной информации по пользователю и переход на вывод рейтинга
         /// </summary>
         /// <param name="ach"></param>
-        void TableToDGBinding(IQueryable<AchieveInfo> ach) 
+        void DataMainPreparatons(IQueryable<AchieveInfo> ach) 
         {
-            achievesInfo.Rows.Clear();
+            FillingNP();            
+            FillingPoints(ach);
+            //Сортировка по темам дотижений
+            var sortAch = ach.GroupBy(p => p.Theme.Name).
+                Select(
+                gnew => new 
+                {
+                    Name=gnew.FirstOrDefault().Theme.Name, 
+                    Points=gnew.Sum(c=>c.Points) 
+                });
+            sortAch = sortAch.OrderByDescending(p => p.Points);
+            FillingTextBlock(sortAch);
+        }
+
+        void FillingTextBlock(dynamic ach)
+        {
+            int i=1;
             foreach (var item in ach)
             {
-                DataRow row = achievesInfo.NewRow();
-                row[0] = item.Date;
-                row[1] = item.Theme.Name;
-                row[2] = item.Name;
-                row[3] = item.Points;
-                achievesInfo.Rows.Add(row);
+                TBlInfo.Text += i.ToString() + ": " + item.Name + " " + item.Points + "\n";
+                i++;
             }
-            FillingPoints(ach);
-           // DGInfo.Items.Refresh();
-            DGInfo.ItemsSource=achievesInfo.AsDataView();
         }
         #endregion
 
@@ -285,13 +254,11 @@ namespace AchiveNoter
            
             
                 var ach=GetFullAchList();
-                if (ExpTh.IsExpanded == true)
-                    ach = GetSelectedTheme(ach);
-                if (ExpSTh.IsExpanded == true)
-                    ach = GetSelectedSubTheme(ach);
+                
 
 
-                if (ExpBD.IsExpanded == true)
+
+                if (PeriodRatio())
                     PeriodDayCreate(ach);
 
                 else
@@ -303,18 +270,6 @@ namespace AchiveNoter
                 }
             
         }
-
-        
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (!detailedInfo)
-            {
-                MainWindow mw = new MainWindow();
-                mw.Show();
-            }
-            
-        }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
                     var ach = GetFullAchList();
@@ -332,30 +287,6 @@ namespace AchiveNoter
 	        }
           
         }
-
-        private void DGInfo_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                DataRowView dRowView = (DataRowView)DGInfo.SelectedItems[0];
-                DataRow dRow = dRowView.Row;
-                string cellContent = dRow[2].ToString();
-
-                using (AchievmentsEntities ach = new AchievmentsEntities())
-                {
-                    AchieveInfo aI = GetFullAchList().Where(p => p.Name == cellContent).FirstOrDefault();
-                    WindowDetailedInfo wdi = new WindowDetailedInfo(aI);
-                    detailedInfo = true;
-                    this.Close();
-                    wdi.Show();
-                }
-
-            }
-            catch { }
-        }
-
-        
     }
-
-   
 }
+

@@ -86,6 +86,9 @@
     <Compile Include="Info\Filter.xaml.cs">
       <DependentUpon>Filter.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Info\ThemeRatio.xaml.cs">
+      <DependentUpon>ThemeRatio.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewAchive\ThSubAdd.xaml.cs">
       <DependentUpon>ThSubAdd.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Info\Filter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Info\ThemeRatio.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

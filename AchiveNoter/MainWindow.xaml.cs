@@ -233,6 +233,46 @@ namespace AchiveNoter
 
         #endregion
 
+        private void MenuItem_Click_4(object sender, RoutedEventArgs e)
+        {
+            MenuItem m=sender as MenuItem;
+            ThemeRatio th;
+                switch (m.Header.ToString())
+	            {
+                    case "Сегодня":
+                        th = new ThemeRatio(true);
+                        //для обхода ошибки с отсутствием достижений
+                        try
+                        {
+                            th.Show();
+                        }
+                        catch { }
+                        this.Close();
+                        break;
+
+                    case "Все время":
+                        th = new ThemeRatio(false);
+                        //для обхода ошибки с отсутствием достижений
+                        try
+                        {
+                            th.Show();
+                        }
+                        catch { }
+                        this.Close();
+                        break;
+
+                    case "Период":
+                        Filter f = new Filter();
+                        f.Show();
+                        this.Close();
+                        break;
+
+		            default:
+                        break;
+	            }
+            
+        }
+
         
 
         

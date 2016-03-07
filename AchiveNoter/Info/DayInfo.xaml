@@ -29,6 +29,8 @@
                 <DataGridTextColumn Header="Тема" Binding="{Binding Path=Тема}" Width="5*"/>
                 <DataGridTextColumn Header="Очки" Binding="{Binding Path=Очки}" Width="2*"/>
             </DataGrid.Columns>
+            
+            
         </DataGrid>
 
 
