@@ -35,7 +35,7 @@ namespace AchiveNoter.Info
         }
 
                 /// <summary>
-        /// Констурктор для периода
+        /// Конструктор для периода
         /// </summary>
         /// <param name="from"></param>
         /// <param name="to"></param>
@@ -44,9 +44,9 @@ namespace AchiveNoter.Info
             InitializeComponent();
             var ach = GetFullAchList();
 
-            ExpBD.IsExpanded = true;
-            dpFrom.Text=from.Date.ToString();
-            dpTo.Text = to.ToString() ;
+           
+            dpFrom.SelectedDate=from.Date;
+            dpTo.SelectedDate = to.Date;
 
             Button_Click_1(this, new RoutedEventArgs());
         }
@@ -59,46 +59,10 @@ namespace AchiveNoter.Info
             {
                 Password p = ach.Passwords.Where(x => x.ID == App.curPnID).FirstOrDefault();
                 TBlInfo.Text += "Пользователь: " + p.Name+"\n";
-                ComboBoxFill();
+                
             }
         }
 
-        void ComboBoxFill()
-        {
-            cbTheme.Items.Clear();
-            using (AchievmentsEntities ach = new AchievmentsEntities())
-            {
-                foreach (var item in ach.Themes)
-                {
-                    cbTheme.Items.Add(item.Name);
-                }
-                cbTheme.SelectedIndex = 0;
-
-                RefrefsSubTh(ach);
-            }
-
-        }
-
-        /// <summary>
-        /// Обновление ComboBox - подтем
-        /// </summary>
-        /// <param name="ach">Соединение с бд</param>
-        void RefrefsSubTh(AchievmentsEntities ach)
-        {
-            cbSubtheme.Items.Clear();
-
-            Theme th = ach.Themes.Where(t => t.Name == cbTheme.SelectedValue.ToString()).FirstOrDefault();
-            foreach (var item in ach.SubThemeRels)
-            {
-                if (item.Theme == th)
-                {
-                    cbSubtheme.Items.Add(item.Subtheme.Name);
-                }
-            }
-
-            if (cbSubtheme.Items.Count > 0)
-                cbSubtheme.SelectedIndex = 0;
-        }
          /// <summary>
         /// Выбор способа заполнения очков
         /// </summary>
@@ -160,11 +124,12 @@ namespace AchiveNoter.Info
         /// </summary>
         void TodayListCreate(IQueryable<AchieveInfo> ach)
         {
-            ExpBD.Visibility = Visibility.Collapsed;
             tblFr.Visibility = Visibility.Collapsed;
             tblTo.Visibility = Visibility.Collapsed;
             dpFrom.Visibility = Visibility.Collapsed;
             dpTo.Visibility = Visibility.Collapsed;
+
+            MainGrid.RowDefinitions.RemoveAt(2);
             DateTime d=DateTime.Now.Date;
             ach = ach.Where(p => p.Date == d);
             DataMainPreparatons(ach);
@@ -196,8 +161,10 @@ namespace AchiveNoter.Info
         /// <param name="ach"></param>
         void DataMainPreparatons(IQueryable<AchieveInfo> ach) 
         {
-            FillingNP();            
+            TBlInfo.Text = "";
+            FillingNP();
             FillingPoints(ach);
+
             //Сортировка по темам дотижений
             var sortAch = ach.GroupBy(p => p.Theme.Name).
                 Select(
@@ -222,18 +189,7 @@ namespace AchiveNoter.Info
         #endregion
 
 
-        #region Применение comboboxов
-        IQueryable<AchieveInfo> GetSelectedTheme(IQueryable<AchieveInfo> ach)
-        {
-            return ach.Where(a => a.Theme.Name == cbTheme.SelectedValue.ToString());
-        }
 
-        IQueryable<AchieveInfo> GetSelectedSubTheme(IQueryable<AchieveInfo> ach)
-        {
-            return ach.Where(a =>a.Subtheme.Name == cbSubtheme.SelectedValue.ToString());
-        }
-
-        #endregion
         /// <summary>
         /// Выход
         /// </summary>
@@ -254,39 +210,20 @@ namespace AchiveNoter.Info
            
             
                 var ach=GetFullAchList();
-                
-
-
-
-                if (PeriodRatio())
-                    PeriodDayCreate(ach);
-
+            //если от меньше до
+                if (dpTo.SelectedDate < dpFrom.SelectedDate)
+                    FullPeriodCreate(ach);
                 else
-                {
-                    if (day)
-                        TodayListCreate(ach);
-                    else
-                        FullPeriodCreate(ach);
-                }
+                    PeriodDayCreate(ach);
             
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
                     var ach = GetFullAchList();
-                    if (day)
-                        TodayListCreate(ach);
-                    else
-                        FullPeriodCreate(ach);      
+                    FullPeriodCreate(ach);      
         }
 
-        private void cbTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            using(AchievmentsEntities ach=new AchievmentsEntities())
-	        {
-                RefrefsSubTh(ach);
-	        }
-          
-        }
+        
     }
 }
 

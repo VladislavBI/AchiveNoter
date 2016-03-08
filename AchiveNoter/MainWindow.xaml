@@ -41,7 +41,6 @@
                 <MenuItem Header="Рейтинг тем" >
                     <MenuItem Header="Сегодня" Click="MenuItem_Click_4"/>
                     <MenuItem Header="Все время" Click="MenuItem_Click_4"/>
-                    <MenuItem Header="Период" Click="MenuItem_Click_4"/>
                 </MenuItem>
                 
             </MenuItem>
