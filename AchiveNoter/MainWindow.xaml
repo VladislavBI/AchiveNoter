@@ -45,7 +45,7 @@
                 
             </MenuItem>
             <MenuItem Header="Справочник">
-                <MenuItem Header="Темы" />
+                <MenuItem Header="Темы" Click="MenuItem_Click_5" />
             </MenuItem>
             <MenuItem Header="Общая информация" >
                 <MenuItem Header="Пользователь" Click="MenuItem_Click" />

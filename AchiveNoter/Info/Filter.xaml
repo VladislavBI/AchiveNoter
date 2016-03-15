@@ -22,7 +22,7 @@
         <DatePicker Name="To" HorizontalAlignment="Center"  Margin="9,10,9,0" VerticalAlignment="Top" SelectedDate="{x:Static s:DateTime.Now}" Grid.Row="2" Grid.Column="1" Height="24" Width="128"/>
 
         <Button Content="Применить" HorizontalAlignment="Center" Margin="36,1,36,4" VerticalAlignment="Center" Width="74" Click="Button_Click" Grid.Row="3" Height="20"/>
-        <Button Content="Отмена" HorizontalAlignment="Center" Margin="36,1,36,4" VerticalAlignment="Center" Width="74" Grid.Row="3" Grid.Column="1" Height="20"/>
+        <Button Content="Отмена" HorizontalAlignment="Center" Margin="36,1,36,4" VerticalAlignment="Center" Width="74" Grid.Row="3" Grid.Column="1" Height="20" Click="Button_Click_1"/>
 
 
 

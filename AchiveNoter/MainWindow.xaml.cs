@@ -273,6 +273,12 @@ namespace AchiveNoter
             
         }
 
+        private void MenuItem_Click_5(object sender, RoutedEventArgs e)
+        {
+            ThemeManual tm= new ThemeManual();
+            tm.Show();
+        }
+
         
 
         
