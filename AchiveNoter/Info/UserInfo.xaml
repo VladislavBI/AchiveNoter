@@ -36,8 +36,7 @@
         <TextBlock Name="TBlWSMnt" Grid.Column="1"  Grid.Row="9" TextWrapping="Wrap" Text="Месяц" TextAlignment="Center" FontSize="16"/>
 
         <Image  Margin="10,10,10,10" Grid.Row="1" Grid.RowSpan="5" Source="NewUser.jpg" />
-        <TextBlock HorizontalAlignment="Center" Grid.Row="5" TextWrapping="Wrap" Text="Цели" VerticalAlignment="Center" FontSize="20" Height="26" Width="61" Grid.RowSpan="3"/>
-        <Button  Name="btnTargets" Content="Обзор" HorizontalAlignment="Center" Grid.Row="7" Width="76" Margin="32,10" Grid.RowSpan="3" FontSize="16"/>
+        <Button  Name="btnTargets" Content="Изменить" HorizontalAlignment="Center" Grid.Row="7" Width="76" Margin="32,10" Grid.RowSpan="3" FontSize="16" Click="btnTargets_Click"/>
 
         <Button Content="Выход" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="10" VerticalAlignment="Center" Width="75" FontSize="16" Click="Button_Click"/>
 

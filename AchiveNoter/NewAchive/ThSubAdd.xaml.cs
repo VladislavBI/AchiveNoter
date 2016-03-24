@@ -80,7 +80,8 @@ namespace AchiveNoter.NewAchive
                 else
                     CreateNewSubTheme(ach);
             }
-            DelegatesData.HandlerAchAddDelCBRefresf();
+            if(DelegatesData.HandlerAchAddDelCBRefresf!=null)
+                DelegatesData.HandlerAchAddDelCBRefresf();
             this.Close();
         }
 

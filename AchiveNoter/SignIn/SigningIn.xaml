@@ -1,0 +1,24 @@
+﻿<Window x:Class="AchiveNoter.SigningIn"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SignIn" Height="155" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Имя" HorizontalAlignment="Center" Margin="0,3,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox Name="TextBoxName" HorizontalAlignment="Center" Height="23" Margin="0,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" FontSize="16" TextChanged="TextBoxName_TextChanged"/>
+
+        <Label Content="Пароль" HorizontalAlignment="Center" Margin="0,3,0,0" VerticalAlignment="Top" Grid.Column="1" FontSize="16"/>
+        <PasswordBox  Name="PassBoxP" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Center" Width="120" Grid.Column="1" FontSize="16"/>
+
+        <Button Content="Вход" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Grid.Row="1" FontSize="16" Click="Button_Click" IsDefault="True"/>
+        <Button Content="Регистрация" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="100" Grid.Column="1" Grid.Row="1" FontSize="16" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

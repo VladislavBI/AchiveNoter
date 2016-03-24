@@ -28,6 +28,8 @@
 
         <Menu   Grid.ColumnSpan="3" FontSize="16" VerticalAlignment="Top">
             <MenuItem Header="Файл" >
+                <MenuItem Header="Добавить" Click="MenuItem_Click_7"/>
+                <MenuItem Header="Изменить" Click="MenuItem_Click_7"/>
                 <MenuItem Header="Выход" Click="MenuExitClick"/>
             </MenuItem>
             <MenuItem Header="Статистика" >

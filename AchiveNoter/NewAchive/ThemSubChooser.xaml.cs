@@ -20,22 +20,42 @@ namespace AchiveNoter
     /// </summary>
     public partial class ThemSubChooser : Window
     {
+        bool add = true;
         public ThemSubChooser()
         {
             InitializeComponent();
         }
 
+        public ThemSubChooser(bool add)
+        {
+            InitializeComponent();
+            this.add = add;
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button b =sender as Button;
-            ThSubAdd th;
-            if(b.Content.ToString()=="Тема")
-                th=new ThSubAdd(true);
-            else
-                th=new ThSubAdd(false);
+            Button b = sender as Button;
+            if (add)
+            {
+                ThSubAdd th;
+                if (b.Content.ToString() == "Тема")
+                    th = new ThSubAdd(true);
+                else
+                    th = new ThSubAdd(false);
+                th.Show();
+                this.Close();
+            }
 
-            th.Show();
-            this.Close();
+            else
+            {
+                EditAch th;
+                if (b.Content.ToString() == "Тема")
+                    th = new EditAch(true);
+                else
+                    th = new EditAch(false);
+                th.Show();
+                this.Close();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

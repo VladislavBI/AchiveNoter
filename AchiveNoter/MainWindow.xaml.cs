@@ -286,6 +286,26 @@ namespace AchiveNoter
             cl.Show();
         }
 
+        private void MenuItem_Click_7(object sender, RoutedEventArgs e)
+        {
+            MenuItem it = sender as MenuItem;
+            ThemSubChooser th;
+
+            if (it.Header.ToString() == "Изменить")
+            {
+                th = new ThemSubChooser(false);  
+            }
+            else
+            {
+                th = new ThemSubChooser(true);  
+            }
+
+            th.ShowDialog();
+            
+        }
+
+  
+
         
 
         

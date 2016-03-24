@@ -26,7 +26,7 @@ namespace AchiveNoter
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            SignIn si = new SignIn();
+            SigningIn si = new SigningIn();
             si.Show();
             this.Close();
         }

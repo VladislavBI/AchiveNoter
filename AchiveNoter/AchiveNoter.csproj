@@ -98,17 +98,23 @@
     <Compile Include="Info\ThemeRatio.xaml.cs">
       <DependentUpon>ThemeRatio.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NewAchive\EditAch.xaml.cs">
+      <DependentUpon>EditAch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NewAchive\ThSubAdd.xaml.cs">
       <DependentUpon>ThSubAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="Password.cs">
       <DependentUpon>User.tt</DependentUpon>
     </Compile>
+    <Compile Include="SignIn\Edit.xaml.cs">
+      <DependentUpon>Edit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SignIn\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SignIn\SignIn.xaml.cs">
-      <DependentUpon>SignIn.xaml</DependentUpon>
+    <Compile Include="SignIn\SigningIn.xaml.cs">
+      <DependentUpon>SigningIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="NewAchive\ThemSubChooser.xaml.cs">
       <DependentUpon>ThemSubChooser.xaml</DependentUpon>
@@ -201,7 +207,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewAchive\EditAch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NewAchive\ThSubAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignIn\Edit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,7 +223,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignIn\SignIn.xaml">
+    <Page Include="SignIn\SigningIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

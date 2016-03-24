@@ -18,7 +18,7 @@
         <ListView Name="LVCat" Grid.Row="1" Grid.ColumnSpan="2" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="4"  Width="300" >
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="4"  Width="250" >
                         <StackPanel Margin="10">
                             <TextBlock Name="TBlTheme" Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         </StackPanel>

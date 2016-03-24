@@ -1,0 +1,49 @@
+﻿<Window x:Class="AchiveNoter.SignIn.Edit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit" Height="300" Width="300">
+    <Window.Resources>
+        <Style x:Key="Centr">
+            <Setter Property="Control.VerticalAlignment" Value="Center" />
+            <Setter Property="Control.Margin" Value="5"/>
+            <Setter Property="Control.FontSize" Value="16" />
+        </Style>
+        
+        <Style x:Key="FullCentr" BasedOn="{StaticResource Centr}">
+            <Setter Property="Control.HorizontalAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock  TextWrapping="Wrap" Text="Изменение данных пользователя" Style="{StaticResource FullCentr}"  Grid.ColumnSpan="2"/>
+
+        <TextBlock  TextWrapping="Wrap" Text="Старый пароль" Style="{StaticResource FullCentr}"  Grid.Row="1"/>
+        <PasswordBox Name="PBOld" Grid.Column="1" Grid.Row="1" Style="{StaticResource Centr}" />
+
+        <TextBlock TextWrapping="Wrap" Text="Логин" Style="{StaticResource FullCentr}"  Grid.Row="2" />
+        <TextBox Name="TBLog"  Grid.Column="1" Grid.Row="2"  Style="{StaticResource Centr}" IsEnabled="False" />
+
+        <TextBlock  TextWrapping="Wrap" Text="Новый пароль" Style="{StaticResource FullCentr}" Grid.Row="3" />
+        <PasswordBox Name="PBNP" Grid.Column="1" Grid.Row="3" Style="{StaticResource Centr}" IsEnabled="False"/>
+
+        <TextBlock  TextWrapping="Wrap" Text="Повторить пароль" Style="{StaticResource FullCentr}"  Grid.Row="4" />
+        <PasswordBox Name="PBRNP" Grid.Column="1" Grid.Row="4" Style="{StaticResource Centr}" IsEnabled="False"/>
+        
+        <Button Name="BCheck" Content="Проверить" Style="{StaticResource FullCentr}" Grid.Row="5" Width="90" Click="Button_Click" />
+        <Button Content="Выход" Style="{StaticResource FullCentr}" Grid.Column="1" Grid.Row="5" Width="90"/>
+
+
+    </Grid>
+</Window>

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace AchiveNoter
 {
     /// <summary>
@@ -108,6 +109,12 @@ namespace AchiveNoter
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnTargets_Click(object sender, RoutedEventArgs e)
+        {
+            SignIn.Edit ed = new AchiveNoter.SignIn.Edit();
+            ed.ShowDialog();
         }
     }
 }
