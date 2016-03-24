@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="53b6b2de-062e-4eb6-a2ef-3652a8c05376" name="Activity2" linkedPackageId="c80bba8c-d15b-479b-9e3e-651085b2a02a" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="73d0ef02-472c-4a74-acd9-59b14e88b354">
+      <profileInstance Id="eaa88833-b021-470e-a379-7e41f0b15831" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="5bb287e9-90a5-4324-856a-4526fb9aaa07">
+      <profileInstance Id="aaf6bf20-7aee-4d0b-9229-1f477ae55aa5" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="3ae0a1e7-0304-477c-9a60-628d79e072b5" name="Activity2" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="ac5def0b-793e-4fe8-8ead-e70058cfe7a3" />
+        <nodes>
+          <initialNode Id="dfb68668-152e-44d6-a233-1831689470db" name="Initial1" isLeaf="false">
+            <elementDefinition Id="69dae172-a219-41c7-a9f1-c163c8ae807d" />
+            <flowNodeTargets>
+              <controlFlow Id="ade72ff1-6dee-43c0-a2d1-698f63250af0" isLeaf="false">
+                <decisionNodeMoniker Id="b80e01fb-42cf-4f80-847e-42b34c947bf8" LastKnownName="Decision1" />
+                <elementDefinition Id="c24e94f3-3adc-4aae-9f02-8846032bf882" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <decisionNode Id="b80e01fb-42cf-4f80-847e-42b34c947bf8" name="Decision1" isLeaf="false">
+            <elementDefinition Id="22c6ccff-2d7b-487d-a4cc-4d2dae30740d" />
+            <flowNodeTargets>
+              <controlFlow Id="13a184f3-7912-419d-a1fa-24bde4ffe80e" isLeaf="false">
+                <opaqueActionMoniker Id="e0707c29-8cd5-4b64-8dcd-b6ef1acca424" LastKnownName="Аутентификация" />
+                <elementDefinition Id="8edc24fe-5603-47fb-875a-a0bea8bc2991" />
+              </controlFlow>
+              <controlFlow Id="8f6cd909-0513-4701-aa9d-2ad6e365b3bf" isLeaf="false">
+                <opaqueActionMoniker Id="f1f0d2fd-4b8e-4102-94f3-43671e146ca0" LastKnownName="Регистрация" />
+                <elementDefinition Id="f487a92a-4531-42fd-a618-7d16be86b5a4" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="e0707c29-8cd5-4b64-8dcd-b6ef1acca424" name="Аутентификация" isLeaf="false">
+            <elementDefinition Id="8c86a9a6-10b1-4cf2-9a5c-106edee4661b" />
+            <flowNodeTargets>
+              <controlFlow Id="58d47505-d5ac-4012-bbbb-b09ad5e3a975" isLeaf="false">
+                <opaqueActionMoniker Id="1a0a4e5b-9365-4404-a9f3-84aff0c583ef" LastKnownName="Выбор необходимого рейтинга" />
+                <elementDefinition Id="7c98e974-f1b0-4edd-87ca-c14b7842061c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="f1f0d2fd-4b8e-4102-94f3-43671e146ca0" name="Регистрация" isLeaf="false">
+            <elementDefinition Id="db5b576b-3ede-4283-80c6-a3dbdeac7606" />
+            <flowNodeTargets>
+              <controlFlow Id="8afae77d-f173-4b72-b80e-8e4a5eef4b35" isLeaf="false">
+                <opaqueActionMoniker Id="e0707c29-8cd5-4b64-8dcd-b6ef1acca424" LastKnownName="Аутентификация" />
+                <elementDefinition Id="010bd45a-0be1-4d31-a599-dac8904b0999" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="1a0a4e5b-9365-4404-a9f3-84aff0c583ef" name="Выбор необходимого рейтинга" isLeaf="false">
+            <elementDefinition Id="ab08c616-7d7b-4808-a98b-51fc966aa6d8" />
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="c80bba8c-d15b-479b-9e3e-651085b2a02a" name="ModelingProject1">
+    <elementDefinition Id="7a95a83a-e159-48b3-a5e9-34ab62ac5fd1" />
+  </package>
+</activityRootModel>

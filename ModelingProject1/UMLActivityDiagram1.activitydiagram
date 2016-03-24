@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="9affa797-9fbd-4f96-a4a5-312c28a79351" name="Activity1" linkedPackageId="4d93a6ab-54fc-4da5-a0f5-132c5ea58e49" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="35225dba-4a2e-4f1f-9054-018fa6ae3654">
+      <profileInstance Id="91bb116c-9b49-4f46-ac18-67fd6428f97f" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="f03f6a01-06db-4a42-8078-f36d151295a3">
+      <profileInstance Id="aa5298bc-c0ad-4fda-9d7f-30944aadb59e" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="7ecf5404-fd5c-4748-9005-21cf4c62db43" name="Activity1" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="57aaa7b9-8e84-4b05-ab1c-8a1fd60f5c03" />
+        <nodes>
+          <initialNode Id="a2ff561f-f9a1-4e00-979a-3fd85bc65572" name="Initial1" isLeaf="false">
+            <elementDefinition Id="39715a18-aa36-4b74-9620-a1f8faaf20ba" />
+            <flowNodeTargets>
+              <controlFlow Id="67cdc3b9-d51e-4a51-a188-0b122229d526" isLeaf="false">
+                <decisionNodeMoniker Id="a8100178-ae54-4cf1-87da-2f50fba6a291" LastKnownName="Decision1" />
+                <elementDefinition Id="bc0bce5b-d4c7-462e-86df-459bfea70896" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <decisionNode Id="a8100178-ae54-4cf1-87da-2f50fba6a291" name="Decision1" isLeaf="false">
+            <elementDefinition Id="59b6a2f6-0b62-4940-9310-2c25a0476ece" />
+            <flowNodeTargets>
+              <controlFlow Id="e18e05c1-1015-47ba-a083-bb1f5579a6ce" isLeaf="false">
+                <opaqueActionMoniker Id="092a8e1c-0511-4413-a0ab-0915126fa34e" LastKnownName="Аутентификация" />
+                <elementDefinition Id="5926bcaa-41e1-45a5-a441-9122bca70907" />
+              </controlFlow>
+              <controlFlow Id="843ab058-d03c-4c2e-9c56-11fc2d539b02" isLeaf="false">
+                <opaqueActionMoniker Id="e0c035d8-a65d-4a8f-8a3a-50710fead2fc" LastKnownName="Регистрация" />
+                <elementDefinition Id="23e2c026-3b9f-4a0c-a4ee-75f2991b1fb0" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction Id="092a8e1c-0511-4413-a0ab-0915126fa34e" name="Аутентификация" isLeaf="false">
+            <elementDefinition Id="279d674f-1094-4639-8f77-7e476ba85a42" />
+            <flowNodeTargets>
+              <controlFlow Id="0987f259-938a-435c-8ca1-6b13bab40a9a" isLeaf="false">
+                <opaqueActionMoniker Id="d53c0dcf-49ee-485a-beb6-cd486f4bb2bc" LastKnownName="Кнопка - новое достижение" />
+                <elementDefinition Id="e523633f-1db9-4b94-b973-70ade9cd723f" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="e0c035d8-a65d-4a8f-8a3a-50710fead2fc" name="Регистрация" isLeaf="false">
+            <elementDefinition Id="1d876ad1-84da-4bf1-a8af-d4ac64baa321" />
+            <flowNodeTargets>
+              <controlFlow Id="c8b41494-61e7-45ae-bbb3-1fe26965c99b" isLeaf="false">
+                <opaqueActionMoniker Id="092a8e1c-0511-4413-a0ab-0915126fa34e" LastKnownName="Аутентификация" />
+                <elementDefinition Id="bdddd1b5-2a7b-42b8-9fef-dbad921a73b8" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="d53c0dcf-49ee-485a-beb6-cd486f4bb2bc" name="Кнопка - новое достижение" isLeaf="false">
+            <elementDefinition Id="cb66db12-7142-4e49-8985-0523cea0e1c7" />
+            <flowNodeTargets>
+              <controlFlow Id="887895d2-2643-4805-add1-4e0db95d94e9" isLeaf="false">
+                <opaqueActionMoniker Id="d37f13fc-cd69-46a0-9a5f-b545d63d5b9c" LastKnownName="Название достижения" />
+                <elementDefinition Id="f51ca380-7b86-4740-bc73-18f120508636" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="d37f13fc-cd69-46a0-9a5f-b545d63d5b9c" name="Название достижения" isLeaf="false">
+            <elementDefinition Id="53213556-6371-49ac-85b8-5408517809b0" />
+            <flowNodeTargets>
+              <controlFlow Id="270f7bf0-11b7-4c38-90e8-da6177017fbe" isLeaf="false">
+                <forkNodeMoniker Id="bda570f8-a107-42bc-8a7d-c71343bf2751" LastKnownName="Fork1" />
+                <elementDefinition Id="e12b7842-4149-409a-9cb0-c734d8cb8422" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <forkNode Id="bda570f8-a107-42bc-8a7d-c71343bf2751" name="Fork1" isLeaf="false">
+            <elementDefinition Id="67d14f4c-d2dd-430b-ab29-a6dad8860afe" />
+            <flowNodeTargets>
+              <controlFlow Id="9a3b9906-b746-4c0e-9356-6289b99edbdc" isLeaf="false">
+                <opaqueActionMoniker Id="917d8707-6d36-46ec-b3c0-42a8284377f1" LastKnownName="Выбор даты (опционально)" />
+                <elementDefinition Id="a06f26a1-8fc1-473b-9841-0480f97197eb" />
+              </controlFlow>
+              <controlFlow Id="9d4f06a5-fe21-452e-b961-694d807292ef" isLeaf="false">
+                <opaqueActionMoniker Id="24a22547-a46c-4516-99f1-1edb983cb518" LastKnownName="Выбор темы(опционально)" />
+                <elementDefinition Id="4a9685cc-00fe-4395-aed6-0556fb6cd5ec" />
+              </controlFlow>
+              <controlFlow Id="678e736d-0065-48ba-9e01-38ad57828a67" isLeaf="false">
+                <opaqueActionMoniker Id="2ee4afa8-5e07-441c-bcc0-d5e3b41ecf22" LastKnownName="Выбор подтемы(опционально)" />
+                <elementDefinition Id="0a0eb6e3-3433-40e4-94c4-e39b1d9de2d0" />
+              </controlFlow>
+              <controlFlow Id="5f19414f-3cc0-4eab-be9c-08b2e8a33bdd" isLeaf="false">
+                <opaqueActionMoniker Id="9a13a38f-5eee-45ac-8c82-63710f7a918d" LastKnownName="Баллы(опционально)" />
+                <elementDefinition Id="f0d0a1d5-6a6b-4b15-b109-c45c628490e6" />
+              </controlFlow>
+              <controlFlow Id="9de3aefa-4565-4d32-b95e-1db76b479572" isLeaf="false">
+                <opaqueActionMoniker Id="cfbb5f41-99f1-4d78-a9c7-272931ef862c" LastKnownName="Описание (опционально)" />
+                <elementDefinition Id="bfd10c41-4bb3-4393-a25f-bee44a5d45ef" />
+              </controlFlow>
+            </flowNodeTargets>
+          </forkNode>
+          <opaqueAction Id="917d8707-6d36-46ec-b3c0-42a8284377f1" name="Выбор даты (опционально)" isLeaf="false">
+            <elementDefinition Id="4116d348-7237-403f-a756-85f5b9e0a36f" />
+            <flowNodeTargets>
+              <controlFlow Id="2a036ff9-bafb-41fe-a443-f8c05182260f" isLeaf="false">
+                <joinNodeMoniker Id="86dd6560-d4b0-403b-80ae-2bdcb760c894" LastKnownName="Join1" />
+                <elementDefinition Id="2ac160d6-e91f-4f79-a621-9b59bf90943b" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="24a22547-a46c-4516-99f1-1edb983cb518" name="Выбор темы(опционально)" isLeaf="false">
+            <elementDefinition Id="08d5bb18-2c6f-40ce-9566-9162db7b347e" />
+            <flowNodeTargets>
+              <controlFlow Id="69f635b5-1343-42a0-8e3b-44e2b2df2c70" isLeaf="false">
+                <joinNodeMoniker Id="86dd6560-d4b0-403b-80ae-2bdcb760c894" LastKnownName="Join1" />
+                <elementDefinition Id="eab47898-eb86-47ff-b0ab-0ce9150c6a59" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="2ee4afa8-5e07-441c-bcc0-d5e3b41ecf22" name="Выбор подтемы(опционально)" isLeaf="false">
+            <elementDefinition Id="3fd1bd2d-c773-4338-b403-ff03fef2fea7" />
+            <flowNodeTargets>
+              <controlFlow Id="62cd532f-c121-4617-b603-596460b2dcf6" isLeaf="false">
+                <joinNodeMoniker Id="86dd6560-d4b0-403b-80ae-2bdcb760c894" LastKnownName="Join1" />
+                <elementDefinition Id="5fea39ac-e6a3-41ee-8de3-9228a6613f7d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="9a13a38f-5eee-45ac-8c82-63710f7a918d" name="Баллы(опционально)" isLeaf="false">
+            <elementDefinition Id="83f5e492-8b0f-47dc-a270-4b70efd3904d" />
+            <flowNodeTargets>
+              <controlFlow Id="78c44fc3-672d-471b-aa2a-85e4ac018975" isLeaf="false">
+                <joinNodeMoniker Id="86dd6560-d4b0-403b-80ae-2bdcb760c894" LastKnownName="Join1" />
+                <elementDefinition Id="cbc83066-612b-4eec-af7d-4d4a0ec8285d" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction Id="cfbb5f41-99f1-4d78-a9c7-272931ef862c" name="Описание (опционально)" isLeaf="false">
+            <elementDefinition Id="2511a102-d1fd-4b74-a865-f0476cce9d52" />
+            <flowNodeTargets>
+              <controlFlow Id="e8365c40-8708-4c81-930a-497f08a2d3ab" isLeaf="false">
+                <joinNodeMoniker Id="86dd6560-d4b0-403b-80ae-2bdcb760c894" LastKnownName="Join1" />
+                <elementDefinition Id="dbd01fad-eec0-47e0-8f1b-3eaeaef5e8f3" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <joinNode Id="86dd6560-d4b0-403b-80ae-2bdcb760c894" name="Join1" isLeaf="false">
+            <elementDefinition Id="64868145-0af5-4a90-92cc-81408f7f404b" />
+            <flowNodeTargets>
+              <controlFlow Id="283e6b20-f863-46e7-b6b7-0a588327cf2a" isLeaf="false">
+                <opaqueActionMoniker Id="d65bc75d-dffe-4c12-8ce2-6ca050f05c0c" LastKnownName="Добавление достижения" />
+                <elementDefinition Id="10aaa2e0-1e21-4775-ac00-7e8c5c461876" />
+              </controlFlow>
+            </flowNodeTargets>
+          </joinNode>
+          <opaqueAction Id="d65bc75d-dffe-4c12-8ce2-6ca050f05c0c" name="Добавление достижения" isLeaf="false">
+            <elementDefinition Id="d15dd889-0257-4ddd-a432-2a70e1cdffd5" />
+          </opaqueAction>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="4d93a6ab-54fc-4da5-a0f5-132c5ea58e49" name="ModelingProject1">
+    <elementDefinition Id="7a95a83a-e159-48b3-a5e9-34ab62ac5fd1" />
+  </package>
+</activityRootModel>

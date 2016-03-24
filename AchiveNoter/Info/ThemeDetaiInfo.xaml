@@ -1,0 +1,35 @@
+﻿<Window x:Class="AchiveNoter.Info.ThemeDetaiInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ThemeDetaiInfo" Height="400" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="TBName" Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Center" />
+        <TextBlock Name="TBlScore"  HorizontalAlignment="Center" Grid.Row="1" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="Очки: 0" VerticalAlignment="Center"/>
+
+        <DataGrid Name="DGList"  Grid.Row="2" Grid.ColumnSpan="2" AutoGenerateColumns="false" >
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Подтема" Binding="{Binding Path=Категория}" Width="3*"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Path=Название}" Width="5*"/>
+                <DataGridTextColumn Header="Очки" Binding="{Binding Path=Очки}" Width="2*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <Button Content="Изменить" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="75"/>
+        <Button Content="Выйти" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="75" Grid.Column="1"/>
+        
+
+
+    </Grid>
+</Window>

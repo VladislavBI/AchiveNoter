@@ -21,7 +21,7 @@ namespace AchiveNoter.Info
     /// </summary>
     public partial class ThemeManual : Window
     {
-        DataTable dT = new DataTable();
+       
         public ThemeManual()
         {
             InitializeComponent();
@@ -32,6 +32,7 @@ namespace AchiveNoter.Info
         {
             using (AchievmentsEntities ach=new AchievmentsEntities())
             {
+                
                 ach.Themes.Load();
                 var themes = ach.Themes.Local;
                  
@@ -69,6 +70,12 @@ namespace AchiveNoter.Info
             }
            
           
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ThemeDetaiInfo td = new ThemeDetaiInfo((Theme)LVTheme.SelectedItem, false);
+            td.Show();
         }
     }
 }

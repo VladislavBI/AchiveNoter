@@ -279,6 +279,13 @@ namespace AchiveNoter
             tm.Show();
         }
 
+        private void MenuItem_Click_6(object sender, RoutedEventArgs e)
+        {
+            MenuItem mi = sender as MenuItem;
+            CategoriesList cl = (Convert.ToInt32(mi.Tag) == 1) ? new CategoriesList(true) : new CategoriesList(false);
+            cl.Show();
+        }
+
         
 
         

@@ -73,6 +73,9 @@
       <DependentUpon>User.tt</DependentUpon>
     </Compile>
     <Compile Include="AchieveInfoINot.cs" />
+    <Compile Include="Info\CategoriesList.xaml.cs">
+      <DependentUpon>CategoriesList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Info\ChangeInfo.xaml.cs">
       <DependentUpon>ChangeInfo.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,9 @@
     </Compile>
     <Compile Include="Info\Filter.xaml.cs">
       <DependentUpon>Filter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Info\ThemeDetaiInfo.xaml.cs">
+      <DependentUpon>ThemeDetaiInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Info\ThemeManual.xaml.cs">
       <DependentUpon>ThemeManual.xaml</DependentUpon>
@@ -137,6 +143,10 @@
     <Compile Include="Info\WindowDetailedInfo.xaml.cs">
       <DependentUpon>WindowDetailedInfo.xaml</DependentUpon>
     </Compile>
+    <Page Include="Info\CategoriesList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Info\ChangeInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Info\Filter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Info\ThemeDetaiInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
