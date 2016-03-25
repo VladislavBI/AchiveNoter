@@ -18,6 +18,10 @@ namespace AchiveNoter
         /// ID текущего пользователя
         /// </summary>
         public static int curPnID = -1;
+        /// <summary>
+        /// Предотвращение создания нескольких иконок трея
+        /// </summary>
+        public static bool TrayIsOn = false;
 
         /// <summary>
         /// Получение строки подключение к БД

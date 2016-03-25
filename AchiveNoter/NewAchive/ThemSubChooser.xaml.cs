@@ -35,6 +35,8 @@ namespace AchiveNoter
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button b = sender as Button;
+            if (DelegatesData.HandlerAchCloseMW != null)
+                DelegatesData.HandlerAchCloseMW();
             if (add)
             {
                 ThSubAdd th;
