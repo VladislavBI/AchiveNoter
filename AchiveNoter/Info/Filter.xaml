@@ -3,26 +3,37 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:s="clr-namespace:System;assembly=mscorlib"    
         
-        Title="Filter" Height="183" Width="300">
-    <Grid>
+        Title="Фильтр" Height="130" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="#FFF6FFBD">
         <Grid.RowDefinitions>
-            <RowDefinition Height="26*"/>
-            <RowDefinition Height="39*"/>
-            <RowDefinition Height="62*"/>
-            <RowDefinition Height="25*"/>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="32*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Label Content="От" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Row="1" Height="26" Margin="61,10,61,3" Width="24"/>
-        <Label Content="До" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Height="26" Margin="60,10,60,3" Width="26"/>
+
+        <Grid Grid.ColumnSpan="2" >
+            <Grid.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="{DynamicResource {x:Static SystemColors.InfoColorKey}}" Offset="0.109"/>
+                    <GradientStop Color="#FF6BE625" Offset="1"/>
+                </RadialGradientBrush>
+            </Grid.Background>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Фильтр" VerticalAlignment="Center"  FontSize="20"  />
+
+        </Grid>
+        <Label Content="От" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.RowSpan="3" FontSize="20"/>
+        <Label Content="До" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" FontSize="20" Grid.RowSpan="3"/>
 
         <DatePicker Name="From"  HorizontalAlignment="Center" Margin="9,10,9,0" VerticalAlignment="Top" SelectedDate="{x:Static s:DateTime.Now}" Grid.Row="2" Height="24" Width="128"/>
         <DatePicker Name="To" HorizontalAlignment="Center"  Margin="9,10,9,0" VerticalAlignment="Top" SelectedDate="{x:Static s:DateTime.Now}" Grid.Row="2" Grid.Column="1" Height="24" Width="128"/>
 
-        <Button Content="Применить" HorizontalAlignment="Center" Margin="36,1,36,4" VerticalAlignment="Center" Width="74" Click="Button_Click" Grid.Row="3" Height="20"/>
-        <Button Content="Отмена" HorizontalAlignment="Center" Margin="36,1,36,4" VerticalAlignment="Center" Width="74" Grid.Row="3" Grid.Column="1" Height="20" Click="Button_Click_1"/>
+        <Button Content="Применить" HorizontalAlignment="Center" Margin="36,7,36,5" VerticalAlignment="Center" Width="74" Click="Button_Click" Grid.Row="3" Height="20" Background="#FF334CEC" Foreground="White" IsDefault="True"/>
+        <Button Content="Отмена" HorizontalAlignment="Center" Margin="36,7,36,5" VerticalAlignment="Center" Width="74" Grid.Row="3" Grid.Column="1" Height="20" Click="Button_Click_1" IsCancel="True"  Foreground="Red" Background="{x:Null}" BorderBrush="{x:Null}" />
 
 
 

@@ -61,7 +61,7 @@
             </MenuItem>
             <MenuItem Header="Общая информация" >
                 <MenuItem Header="Пользователь" Click="MenuItem_Click" />
-                <MenuItem Header="Разработчик" />
+                <MenuItem Header="Разработчик" Click="MenuItem_Click_8"/>
             </MenuItem>
         </Menu>
         

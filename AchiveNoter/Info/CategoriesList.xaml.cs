@@ -59,5 +59,12 @@ namespace AchiveNoter.Info
             ThemeDetaiInfo td=th?new ThemeDetaiInfo((Theme)LVCat.SelectedItem, true):new ThemeDetaiInfo((Subtheme)LVCat.SelectedItem, false);
             td.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow();
+            mw.Show();
+            this.Close();
+        }
     }
 }

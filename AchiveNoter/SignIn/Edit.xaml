@@ -1,7 +1,7 @@
 ﻿<Window x:Class="AchiveNoter.SignIn.Edit"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Пользователь" Height="300" Width="330">
+        Title="Пользователь" Height="300" Width="330" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="Centr">
             <Setter Property="Control.VerticalAlignment" Value="Center" />

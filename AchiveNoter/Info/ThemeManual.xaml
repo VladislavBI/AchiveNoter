@@ -1,29 +1,39 @@
 ﻿<Window x:Class="AchiveNoter.Info.ThemeManual"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ThemeManual" Height="300" Width="620" MaxHeight="500" MaxWidth="620">
-    <Grid>
+        Title="Общий справочник" Height="300" Width="620" MaxHeight="500" MaxWidth="620" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFF6FFBD">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition />
-            <RowDefinition  Height="8*"/>
-            <RowDefinition  />
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="24*" />
+            <RowDefinition  Height="192*"/>
+            <RowDefinition Height="30*"  />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
 
+        <Grid Grid.ColumnSpan="2" Margin="0,0,-10,0" >
+            <Grid.Background>
+                <RadialGradientBrush>
+                    <GradientStop Color="{DynamicResource {x:Static SystemColors.InfoColorKey}}" Offset="0.109"/>
+                    <GradientStop Color="#FF6BE625" Offset="1"/>
+                </RadialGradientBrush>
+            </Grid.Background>
+            <TextBlock Text="Справочник" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
 
-        <TextBlock Text="Справочник" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-        <TextBlock Text="Темы" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
-        <TextBlock Text="Подтемы" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16"/>
+        </Grid>
+
+
+        <TextBlock Text="Темы" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Height="22" Margin="81,1" Width="39"/>
+        <TextBlock Text="Подтемы" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Height="22" Margin="167,1" Width="67"/>
         <ListView Grid.Row="2" Name="LVTheme" SelectionChanged="LVTheme_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="4" Width="150">
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="5" CornerRadius="4" Width="150" Background="Orange" >
                         <StackPanel Margin="10">
-                            <TextBlock Name="TBlTheme" Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                            <TextBlock Name="TBlTheme" Text="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
                         </StackPanel>
                     </Border>
                 </DataTemplate>
@@ -38,7 +48,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
+        <Button Content="Выход" HorizontalAlignment="Center"  Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Top" Width="75" IsCancel="True"  Foreground="Red" Background="{x:Null}" BorderBrush="{x:Null}" Click="Button_Click_1" FontSize="20" Height="26" Margin="0,-2"/>
+
 
     </Grid>
 </Window>

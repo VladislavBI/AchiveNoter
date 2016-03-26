@@ -26,6 +26,9 @@ namespace AchiveNoter.Info
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if (DelegatesData.HandlerAchCloseMW != null)
+                DelegatesData.HandlerAchCloseMW();
+
             DayInfo di;
             if (From.SelectedDate.Value > To.SelectedDate.Value)
             {

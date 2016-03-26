@@ -272,6 +272,8 @@ namespace AchiveNoter
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mw = new MainWindow();
+            mw.Show();
             this.Close();
         }
 

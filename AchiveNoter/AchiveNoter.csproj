@@ -89,6 +89,9 @@
     <Compile Include="HelloWindow.xaml.cs">
       <DependentUpon>HelloWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Info\Delevoper.xaml.cs">
+      <DependentUpon>Delevoper.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Info\Filter.xaml.cs">
       <DependentUpon>Filter.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HelloWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Info\Delevoper.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -302,6 +309,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Info\Develop.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

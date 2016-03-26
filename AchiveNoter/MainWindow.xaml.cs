@@ -41,7 +41,8 @@ namespace AchiveNoter
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             UserInfo us = new UserInfo();
-            us.ShowDialog();
+            us.Show();
+            this.Close();
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
@@ -72,8 +73,8 @@ namespace AchiveNoter
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
             Filter f = new Filter();
-            f.Show();
-            this.Close();
+            f.ShowDialog();
+            
         }
 
 
@@ -288,12 +289,14 @@ namespace AchiveNoter
         {
             ThemeManual tm= new ThemeManual();
             tm.Show();
+            this.Close();
         }
 
         private void MenuItem_Click_6(object sender, RoutedEventArgs e)
         {
             MenuItem mi = sender as MenuItem;
             CategoriesList cl = (Convert.ToInt32(mi.Tag) == 1) ? new CategoriesList(true) : new CategoriesList(false);
+            this.Close();
             cl.Show();
         }
 
@@ -313,6 +316,13 @@ namespace AchiveNoter
 
             th.ShowDialog();
             
+        }
+
+        private void MenuItem_Click_8(object sender, RoutedEventArgs e)
+        {
+            AchiveNoter.Info.Delevoper dev = new Delevoper();
+            dev.Show();
+            this.Close();
         }
 
   

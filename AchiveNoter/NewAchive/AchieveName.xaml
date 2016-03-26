@@ -1,7 +1,7 @@
 ﻿<Window x:Class="AchiveNoter.AchieveName"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Добавить достижение" Height="180" Width="400">
+        Title="Добавить достижение" Height="180" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="#FFF6FFBD">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>

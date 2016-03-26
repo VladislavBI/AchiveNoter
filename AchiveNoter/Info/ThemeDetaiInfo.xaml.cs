@@ -128,6 +128,15 @@ namespace AchiveNoter.Info
             DGList.ItemsSource = DTAch.AsDataView();
         }
 
+
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            CategoriesList cl = new CategoriesList(theme);
+            cl.Show();
+            this.Close();
+        }
+
         
     }
 
